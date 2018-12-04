@@ -19,4 +19,9 @@ public interface House {
         int WEEK = 2;
         int ANY_TIME = 3;
     }
+
+    interface Search {
+        int NEIGHBORHOOD = 1;
+        int ROOMER_PHONE = 2;
+    }
 }

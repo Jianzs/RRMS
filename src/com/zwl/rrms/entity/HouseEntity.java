@@ -30,11 +30,11 @@ public class HouseEntity {
         private Integer maxCustomer = 1;
         private Double rent = 2000d;
         private Integer state = House.State.UNPAID;
-        private Double serviceCharge = rent * 0.05;
+        private Double serviceCharge = null;
         private Integer roomerId;
         private String description;
-        private Integer freetime;
-        private String picture;
+        private Integer freetime = House.FreeTime.ANY_TIME;
+        private String picture = "null";
         private String neighborhood = "未命名";
 
         public Builder setProvinceId(Integer provinceId) {
@@ -52,8 +52,9 @@ public class HouseEntity {
             return this;
         }
 
-        public void setAddress(String address) {
+        public Builder setAddress(String address) {
             this.address = address;
+            return this;
         }
 
         public Builder setNeighborhood(String neighborhood) {
@@ -78,6 +79,8 @@ public class HouseEntity {
 
         public Builder setRent(Double rent) {
             this.rent = rent;
+            if (serviceCharge == null)
+                serviceCharge = rent * 0.05;
             return this;
         }
 

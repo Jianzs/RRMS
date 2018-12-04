@@ -10,6 +10,7 @@ public class UserEntity {
     private Integer provinceId;
     private Integer cityId;
     private Integer countyId;
+    private Integer type;
     private String address;
     private Long birthday;
     private Integer gender;
@@ -24,9 +25,15 @@ public class UserEntity {
         private Integer cityId;
         private Integer countyId;
         private String address;
+        private Integer type = User.Type.ORDINARY;
         private Long birthday;
         private Integer gender = User.Gender.FEMALE;
         private Integer state = User.State.NORMAL;
+
+        public Builder setType(Integer type) {
+            this.type = type;
+            return this;
+        }
 
         public Builder setId(Integer id) {
             this.id = id;
@@ -48,8 +55,9 @@ public class UserEntity {
             return this;
         }
 
-        public void setAddress(String address) {
+        public Builder setAddress(String address) {
             this.address = address;
+            return this;
         }
 
         public Builder setPhone(String phone) {
@@ -85,6 +93,7 @@ public class UserEntity {
 
         public UserEntity build() {
             UserEntity user = new UserEntity();
+            user.id = id;
             user.phone = phone;
             user.password = password;
             user.name = name;
@@ -95,8 +104,17 @@ public class UserEntity {
             user.birthday = birthday;
             user.gender = gender;
             user.state = state;
+            user.type = type;
             return user;
         }
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public Integer getId() {

@@ -10,4 +10,14 @@ public interface User {
         int NORMAL = 1;
         int DELETED = 2;
     }
+
+    interface Type {
+        int ORDINARY = 1;
+        int ADMIN = 2;
+    }
+
+    interface Search {
+        int PHONE = 1;
+        int NAME = 2;
+    }
 }

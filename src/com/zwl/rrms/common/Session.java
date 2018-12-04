@@ -1,5 +1,6 @@
 package com.zwl.rrms.common;
 
+import com.zwl.rrms.entity.ContactEntity;
 import com.zwl.rrms.entity.HouseEntity;
 import com.zwl.rrms.entity.UserEntity;
 import com.zwl.rrms.entity.ViewRecordEntity;
@@ -9,10 +10,95 @@ public class Session {
     private HouseEntity house;
     private ViewRecordEntity viewRecord;
 
+    private HouseEntity backHouseDetail;
+    private UserEntity backUserDetail;
+    private ContactEntity backContactDetail;
+    private ViewRecordEntity backViewRecordDetail;
+
+    private UserEntity selectedUser;
+
+    private boolean isModify = false;
+    private HouseEntity modifiedHouse;
+    private UserEntity modifiedUser;
+    private ContactEntity modifiedContact;
+    private ViewRecordEntity modifiedView;
+
     private static Session ourInstance = new Session();
+
+    public HouseEntity getModifiedHouse() {
+        return modifiedHouse;
+    }
+
+    public void setModifiedHouse(HouseEntity modifiedHouse) {
+        this.modifiedHouse = modifiedHouse;
+    }
+
+    public UserEntity getModifiedUser() {
+        return modifiedUser;
+    }
+
+    public void setModifiedUser(UserEntity modifiedUser) {
+        this.modifiedUser = modifiedUser;
+    }
+
+    public ContactEntity getModifiedContact() {
+        return modifiedContact;
+    }
+
+    public void setModifiedContact(ContactEntity modifiedContact) {
+        this.modifiedContact = modifiedContact;
+    }
+
+    public ViewRecordEntity getModifiedView() {
+        return modifiedView;
+    }
+
+    public void setModifiedView(ViewRecordEntity modifiedView) {
+        this.modifiedView = modifiedView;
+    }
+
+    public boolean isModify() {
+        return isModify;
+    }
+
+    public void setModify(boolean modify) {
+        isModify = modify;
+    }
 
     public static Session getInstance() {
         return ourInstance;
+    }
+
+    public UserEntity getSelectedUser() {
+        return selectedUser;
+    }
+
+    public void setSelectedUser(UserEntity selectedUser) {
+        this.selectedUser = selectedUser;
+    }
+
+    public ViewRecordEntity getBackViewRecordDetail() {
+        return backViewRecordDetail;
+    }
+
+    public void setBackViewRecordDetail(ViewRecordEntity backViewRecordDetail) {
+        this.backViewRecordDetail = backViewRecordDetail;
+    }
+
+    public ContactEntity getBackContactDetail() {
+        return backContactDetail;
+    }
+
+    public void setBackContactDetail(ContactEntity backContactDetail) {
+        this.backContactDetail = backContactDetail;
+    }
+
+    public UserEntity getBackUserDetail() {
+        return backUserDetail;
+    }
+
+    public void setBackUserDetail(UserEntity backUserDetail) {
+        this.backUserDetail = backUserDetail;
     }
 
     public ViewRecordEntity getViewRecord() {
@@ -37,5 +123,13 @@ public class Session {
 
     public void setUser(UserEntity user) {
         this.user = user;
+    }
+
+    public HouseEntity getBackHouseDetail() {
+        return backHouseDetail;
+    }
+
+    public void setBackHouseDetail(HouseEntity backHouseDetail) {
+        this.backHouseDetail = backHouseDetail;
     }
 }

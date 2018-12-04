@@ -1,7 +1,7 @@
 package com.zwl.rrms;
 
-import com.zwl.rrms.display.FrameChange;
-import com.zwl.rrms.display.LoginFrame;
+import com.zwl.rrms.display.common.FrameChange;
+import com.zwl.rrms.display.front.LoginFrame;
 
 public class Manager {
     public static void main(String[] args) {

@@ -1,6 +1,7 @@
 package com.zwl.rrms.dao;
 
 import com.zwl.rrms.constant.Parameter;
+import com.zwl.rrms.constant.User;
 import com.zwl.rrms.entity.HouseEntity;
 import com.zwl.rrms.entity.ViewRecordEntity;
 
@@ -25,6 +26,54 @@ public class HouseDao extends BaseDao {
             "WHERE roomer_id = ? " +
             "   AND state in (%s) " +
             "LIMIT ?, ?";
+
+    private static String countAllByUid =
+            "select count(*)\n" +
+            "from house\n" +
+            "where roomer_id = ?";
+
+    private static String listAll =
+            "SELECT * " +
+            "FROM house " +
+            "LIMIT ?, ?";
+
+    private static String listFuzzyByNeighborhood =
+            "select *\n" +
+            "from house\n" +
+            "where neighborhood like '%%%s%%'";
+
+    private static String listFuzzyByRoomerPhone =
+            "select *\n" +
+            "from house\n" +
+            "where roomer_id = (select id\n" +
+            "                  from user\n" +
+            "                  where phone = ?\n" +
+            "                    and state = ?)";
+    private static String countAll =
+            "select count(*)\n" +
+            "from house";
+
+    private static String create =
+            "insert into house(neighborhood, province_id, city_id, county_id, address, type, max_customer, rent, state, service_charge, roomer_id, description, freetime, picture)\n" +
+            "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+    private static String update =
+            "update house\n" +
+                    "set neighborhood = ?,\n" +
+                    "    province_id = ?,\n" +
+                    "    city_id = ?,\n" +
+                    "    county_id = ?,\n" +
+                    "    address = ?,\n" +
+                    "    type = ?,\n" +
+                    "    max_customer = ?,\n" +
+                    "    rent = ?,\n" +
+                    "    state = ?,\n" +
+                    "    service_charge = ?,\n" +
+                    "    roomer_id = ?,\n" +
+                    "    description = ?,\n" +
+                    "    freetime = ?,\n" +
+                    "    picture = ?\n" +
+                    "where id = ?";
 
     public static HouseEntity getById(Integer houseId)
             throws SQLException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
@@ -84,5 +133,110 @@ public class HouseDao extends BaseDao {
         close(conn, rs, stmt);
 
         return entities;
+    }
+
+    public static Integer countAllByUid(Integer uid)
+            throws SQLException, ClassNotFoundException {
+        Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement(countAllByUid);
+        stmt.setInt(1, uid);
+        ResultSet rs = stmt.executeQuery();
+        rs.next();
+        return rs.getInt(1);
+    }
+
+    public static List<HouseEntity> listAllByPage(Integer page)
+            throws InvocationTargetException, SQLException, InstantiationException, NoSuchMethodException, IllegalAccessException, ClassNotFoundException {
+        Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement(listAll);
+        stmt.setInt(1, Parameter.NUM_HOUSE_PER_PAGE * (page - 1));
+        stmt.setInt(2, Parameter.NUM_HOUSE_PER_PAGE);
+        ResultSet rs = stmt.executeQuery();
+
+        List<HouseEntity> entities = new ArrayList<>();
+        while (rs.next()){
+            entities.add((HouseEntity) getObject(HouseEntity.class, rs));
+        }
+        return entities;
+    }
+
+    public static List<HouseEntity> listFuzzyByNeighborhood(String text)
+            throws InvocationTargetException, SQLException, InstantiationException, NoSuchMethodException, IllegalAccessException, ClassNotFoundException {
+        Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement(String.format(listFuzzyByNeighborhood, text));
+        ResultSet rs = stmt.executeQuery();
+        List<HouseEntity> entities = new ArrayList<>();
+        while (rs.next()) {
+            entities.add((HouseEntity) getObject(HouseEntity.class, rs));
+        }
+        return entities;
+    }
+
+    public static List<HouseEntity> listFuzzyByRoomerPhone(String text) throws InvocationTargetException, SQLException, InstantiationException, NoSuchMethodException, IllegalAccessException, ClassNotFoundException {
+        Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement(listFuzzyByRoomerPhone);
+        stmt.setString(1, text);
+        stmt.setInt(2, User.State.NORMAL);
+        ResultSet rs = stmt.executeQuery();
+        List<HouseEntity> entities = new ArrayList<>();
+        while (rs.next()) {
+            entities.add((HouseEntity) getObject(HouseEntity.class, rs));
+        }
+        return entities;
+    }
+
+    public static Integer countAll() throws SQLException, ClassNotFoundException {
+        Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement(countAll);
+        ResultSet rs = stmt.executeQuery();
+        rs.next();
+        return rs.getInt(1);
+    }
+
+    public static boolean create(HouseEntity house) throws SQLException, ClassNotFoundException {
+        Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement(create);
+        stmt.setString(1, house.getNeighborhood());
+        stmt.setInt(2, house.getProvinceId());
+        stmt.setInt(3, house.getCityId());
+        stmt.setInt(4, house.getCountyId());
+        stmt.setString(5, house.getAddress());
+        stmt.setInt(6, house.getType());
+        stmt.setInt(7, house.getMaxCustomer());
+        stmt.setDouble(8, house.getRent());
+        stmt.setInt(9, house.getState());
+        stmt.setDouble(10, house.getServiceCharge());
+        stmt.setInt(11, house.getRoomerId());
+        stmt.setString(12, house.getDescription());
+        stmt.setInt(13, house.getFreetime());
+        stmt.setString(14, house.getPicture());
+
+        System.out.println(house.getServiceCharge());
+        int i = stmt.executeUpdate();
+        return i > 0;
+    }
+
+    public static boolean update(HouseEntity house) throws SQLException, ClassNotFoundException {
+        Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement(update);
+        stmt.setString(1, house.getNeighborhood());
+        stmt.setInt(2, house.getProvinceId());
+        stmt.setInt(3, house.getCityId());
+        stmt.setInt(4, house.getCountyId());
+        stmt.setString(5, house.getAddress());
+        stmt.setInt(6, house.getType());
+        stmt.setInt(7, house.getMaxCustomer());
+        stmt.setDouble(8, house.getRent());
+        stmt.setInt(9, house.getState());
+        stmt.setDouble(10, house.getServiceCharge());
+        stmt.setInt(11, house.getRoomerId());
+        stmt.setString(12, house.getDescription());
+        stmt.setInt(13, house.getFreetime());
+        stmt.setString(14, house.getPicture());
+        stmt.setInt(15, house.getId());
+
+        System.out.println(house.getServiceCharge());
+        int i = stmt.executeUpdate();
+        return i > 0;
     }
 }

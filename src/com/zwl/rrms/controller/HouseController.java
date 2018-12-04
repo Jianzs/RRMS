@@ -2,8 +2,8 @@ package com.zwl.rrms.controller;
 
 import com.zwl.rrms.constant.House;
 import com.zwl.rrms.dao.HouseDao;
-import com.zwl.rrms.dao.UserDao;
 import com.zwl.rrms.entity.HouseEntity;
+import com.zwl.rrms.entity.UserEntity;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
@@ -42,5 +42,68 @@ public class HouseController extends BaseController {
             exceptionHand(e);
         }
         return entities;
+    }
+
+    public static Integer countByUser(UserEntity user) {
+        try {
+            return HouseDao.countAllByUid(user.getId());
+        } catch (SQLException | ClassNotFoundException e) {
+            exceptionHand(e);
+        }
+        return null;
+    }
+
+    public static List<HouseEntity> listAllByPage(Integer page) {
+        try {
+            return HouseDao.listAllByPage(page);
+        } catch (InvocationTargetException | SQLException | NoSuchMethodException | InstantiationException | ClassNotFoundException | IllegalAccessException e) {
+            exceptionHand(e);
+        }
+        return null;
+    }
+
+    public static List<HouseEntity> listFuzzyByNeighborhood(String text) {
+        try {
+            return HouseDao.listFuzzyByNeighborhood(text);
+        } catch (InvocationTargetException | SQLException | NoSuchMethodException | InstantiationException | ClassNotFoundException | IllegalAccessException e) {
+           exceptionHand(e);
+        }
+        return null;
+    }
+
+    public static List<HouseEntity> listFuzzyByRoomerPhone(String text)  {
+        try {
+            return HouseDao.listFuzzyByRoomerPhone(text);
+        } catch (InvocationTargetException | SQLException | NoSuchMethodException | IllegalAccessException | ClassNotFoundException | InstantiationException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static Integer countAll() {
+        try {
+            return HouseDao.countAll();
+        } catch (SQLException | ClassNotFoundException e) {
+            exceptionHand(e);
+        }
+        return 1;
+    }
+
+    public static boolean create(HouseEntity house) {
+        try {
+            return HouseDao.create(house);
+        } catch (SQLException | ClassNotFoundException e) {
+            exceptionHand(e);
+        }
+        return false;
+    }
+
+    public static boolean update(HouseEntity makeHouse) {
+        try {
+            return HouseDao.update(makeHouse);
+        } catch (SQLException | ClassNotFoundException e) {
+            exceptionHand(e);
+        }
+        return false;
     }
 }
