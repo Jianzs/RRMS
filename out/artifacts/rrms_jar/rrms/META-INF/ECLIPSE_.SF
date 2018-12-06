@@ -1,0 +1,535 @@
+Signature-Version: 1.0
+SHA-256-Digest-Manifest-Main-Attributes: leRNe2JP0xsPjE9sWYdijuyhoRYg8
+ KYeiW7mZ3DM+Kg=
+SHA-256-Digest-Manifest: tlwQ4Ygxaz5CKyZqSgzyzTF7RQHfjxqL3b8KK4U3hAE=
+Created-By: 1.8.0_162 (Oracle Corporation)
+
+Name: plugin.xml
+SHA-256-Digest: ZoN6PRZfC0xrjpyC/HfN7qAXbxA39ZTifb+Gnw+UNdw=
+
+Name: org/eclipse/ui/internal/forms/css/properties/css2/CSSPropertyFor
+ mHandler.class
+SHA-256-Digest: C1eFIlfiHrg7VJAZ+LQ7h/xe8vJjAlK4L6i0U0Il8q8=
+
+Name: icons/progress/ani/2.png
+SHA-256-Digest: hzEksqTJ09AbDhjPbmOqHfoSfGYccS7WFIfA/kibz6U=
+
+Name: org/eclipse/ui/internal/forms/widgets/Paragraph.class
+SHA-256-Digest: 6HeuuQIle+6eV7cMC4e3m+ZIOVmbolbEaW1fbRIZu6U=
+
+Name: org/eclipse/ui/forms/IDetailsPageProvider.class
+SHA-256-Digest: djzhnkWXbA2MctKJYqSJIxkR7ajiZoQSVDgQwjQXrv4=
+
+Name: org/eclipse/ui/forms/AbstractFormPart.class
+SHA-256-Digest: Z5QzImPSlvzY6hFrgZX5+oD2G5pYy3xo4rBWNyr4+p0=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormUtil.class
+SHA-256-Digest: gxcIGXNGl10EYBs4B3IMlv09YgoZ+FAc4B63MSYHtyc=
+
+Name: org/eclipse/ui/forms/widgets/ExpandableComposite$2.class
+SHA-256-Digest: 7YFkSu5z/vupqrUe0vBdNKY8tkZAluqK7RF7zOp4USA=
+
+Name: org/eclipse/ui/internal/forms/widgets/IHyperlinkSegment.class
+SHA-256-Digest: iOvR//fwFA3Z+mq2nlEwVqNi4ajDLYYTgzAptih+ozc=
+
+Name: org/eclipse/ui/forms/widgets/FormToolkit$1.class
+SHA-256-Digest: HiBjjeEG+d3tX2BqV6i9BUrF9m2g6D9kyxTI20pycHU=
+
+Name: org/eclipse/ui/internal/forms/widgets/BulletParagraph.class
+SHA-256-Digest: p+Es+NGUIcFkUpDGjj3uAxKSQS3EDYxHmNGM7hJW9QQ=
+
+Name: org/eclipse/ui/internal/forms/css/dom/SectionElement.class
+SHA-256-Digest: UMr+D3QOC4ii3ukoaMwCHKPWFID++FCZ9800Tqj6F6o=
+
+Name: org/eclipse/ui/forms/editor/FormEditor$FormEditorSelectionProvid
+ er.class
+SHA-256-Digest: JHbua39TXZ7LQPdMjT3SDmXspj0pzxFCKv+QJMJ5Iis=
+
+Name: org/eclipse/ui/forms/HyperlinkGroup$GroupListener.class
+SHA-256-Digest: hJSxKMf+Qs+qhg3IJMohI4q5RjCACntQc4ZPn5DELyU=
+
+Name: org/eclipse/ui/internal/forms/widgets/WrappedPageBook.class
+SHA-256-Digest: ePyyJbtXGqVe/ZsDzWs9GRl6+uYa/qv0DGVc/0RP7T8=
+
+Name: .api_description
+SHA-256-Digest: gaL2RrnCg+grdhKcFz+OrErFXojYzKOgE/rdHiCs+OI=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormImages$ComplexImageDes
+ criptor.class
+SHA-256-Digest: GxLhXd+AOHzUlnSdRlxx/Q44un4+XuT1LPXH/R3Tnbk=
+
+Name: org/eclipse/ui/internal/forms/widgets/ControlSegment.class
+SHA-256-Digest: 1QyUIjFgqXOXbVqnATTFFy85R9c9Bxs9n0EqNgvjwog=
+
+Name: org/eclipse/ui/forms/widgets/FormText$4.class
+SHA-256-Digest: 72fjFudbb2MgZaj4qkQeADOexFOCYCCmEcqMbuZ/O10=
+
+Name: org/eclipse/ui/forms/FormDialog.class
+SHA-256-Digest: NglYjLopjsp9SRuLR4F0t3F1wf1LpVzJP1aGHtw+ldI=
+
+Name: org/eclipse/ui/forms/editor/FormPage.class
+SHA-256-Digest: UfQAXSml/NKNLw+jT0kd47jNnmWGDsCmkmfJqcZO4vE=
+
+Name: org/eclipse/ui/internal/forms/widgets/ParagraphSegment.class
+SHA-256-Digest: pFLuddFXUsYkSmcb06uZdFB2jpMJz8++Fwifn9pvXQY=
+
+Name: org/eclipse/ui/forms/IFormColors.class
+SHA-256-Digest: emN3PpD/N3vGICpZb7XPHdPDMWd98H6kstiY5esV/kw=
+
+Name: org/eclipse/ui/internal/forms/MessageManager$ControlDecorator.cl
+ ass
+SHA-256-Digest: QXCTHeEWVGS3RDIjweONlEK63ugw8jqy6LIgviwyO80=
+
+Name: org/eclipse/ui/forms/widgets/FormToolkit$BorderPainter.class
+SHA-256-Digest: l/wkrun9a+BSF5wf6xS8k0gZzJO4n6kZt4lkfFKVymw=
+
+Name: org/eclipse/ui/forms/IPartSelectionListener.class
+SHA-256-Digest: HbfufXoVuharnRM6yXO6mtCaJH225uL98g0aZBUno3k=
+
+Name: org/eclipse/ui/forms/widgets/FormText$1.class
+SHA-256-Digest: n0q87ZszyFH2eUFXspuQP+K/XI9Y6+eJSmLbXtEpoVM=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormFonts$BoldFontDescript
+ or.class
+SHA-256-Digest: wz2b/MbBNEIYQzFuF1dnzDqWhfbO/ng9961cO3QEw6M=
+
+Name: icons/progress/ani/2@2x.png
+SHA-256-Digest: 2HIq7m95YaTikd4rnuVCqbrodACr2WGiw1RHIysdMgQ=
+
+Name: org/eclipse/ui/forms/widgets/ILayoutExtension.class
+SHA-256-Digest: 5oMoxYmCx/dnYCMkfGsPhO8Y8LUqEHgmLXP4uHHD/D4=
+
+Name: org/eclipse/ui/forms/widgets/FormText$7.class
+SHA-256-Digest: TLvlHxHFSMT+gn90kwB/63MWCS8wD/VKOrGf70PPNAg=
+
+Name: org/eclipse/ui/internal/forms/widgets/Locator.class
+SHA-256-Digest: WqCDfKf8SKxC7T+YoWefzuuDcfSdLoBZQ0IamgKGOb0=
+
+Name: org/eclipse/ui/forms/events/ExpansionEvent.class
+SHA-256-Digest: VVUu7uzeNkP2Nm4CYmqtpNvoiVlj08E2nfNAUZJOwTE=
+
+Name: icons/progress/ani/8.png
+SHA-256-Digest: opFWmMc6EDxRMIEjRqZi8h4q0G7MvNAxSrs2GDz2u4E=
+
+Name: org/eclipse/ui/internal/forms/widgets/TitleRegion$1.class
+SHA-256-Digest: 3Dy9G64HTT1TNCgF1+EuYXM1KZaN3p5cBMaDIgFQn+Y=
+
+Name: .options
+SHA-256-Digest: RFOietA1JSPUmYkbD2hbtsaMwuxG+1+VCarSPXJfbBs=
+
+Name: org/eclipse/ui/forms/events/HyperlinkEvent.class
+SHA-256-Digest: HAXDpyFRkZiLJ2he25wTGhi4x+p6i6VvUjWQnszwu3Q=
+
+Name: org/eclipse/ui/forms/widgets/ColumnLayoutData.class
+SHA-256-Digest: RvI3ZO3jAaAf0ATVrs9Z4AqEKK7eBJO/KLUueWcHLdM=
+
+Name: org/eclipse/ui/internal/forms/widgets/BusyIndicator.class
+SHA-256-Digest: bgam6ELOqpUc9w74iHMadG6gJK4/YOl2BcsJ1rI/Iik=
+
+Name: org/eclipse/ui/forms/widgets/ToggleHyperlink$2.class
+SHA-256-Digest: CHQKReulM1ZEhVIqYDA3/ZrNEc2R2aunyX1gj0VafVE=
+
+Name: org/eclipse/ui/forms/widgets/ExpandableComposite$ExpandableLayou
+ t.class
+SHA-256-Digest: lAAooShWEJRoHQGtklOzQXwTPJGRE5hp59jId/4Qeag=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormsResources.class
+SHA-256-Digest: 1ocJaW3Gpd0rKZuwVEaZizoHuedOM6TW8ATSzUEmiBg=
+
+Name: org/eclipse/ui/forms/widgets/ImageHyperlink.class
+SHA-256-Digest: 54U74NQHSsCiylLogJpeuHUzNaTVPSaLclHCX4AOZnU=
+
+Name: org/eclipse/ui/forms/widgets/ExpandableComposite$4.class
+SHA-256-Digest: 36Ucl0Y/FUuCT0U0YZqfAXT2RQxTEPd/dSIb+6y0T64=
+
+Name: org/eclipse/ui/forms/SectionPart.class
+SHA-256-Digest: fakpYRUgARzDdOVT6r+C99IX60Y7jslMcplFp29l8RQ=
+
+Name: org/eclipse/ui/internal/forms/widgets/TextSegment$AreaRectangle.
+ class
+SHA-256-Digest: X7Fgpn5262ucA3BnRKYH9sRkpnmQ4mAQqV9iwSFFUC8=
+
+Name: org/eclipse/ui/forms/editor/FormPage$PageForm.class
+SHA-256-Digest: x5K6tlBrus7npWaPN8SabvucyPTwySdPIpHUfvJMbe0=
+
+Name: icons/progress/ani/1@2x.png
+SHA-256-Digest: nrawINQZcTT54d/C7LGrcGFLHdzgMJngeqVP4eNeXsE=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormImages$AbstractImageDe
+ scriptor.class
+SHA-256-Digest: j62LGuHCVQiBy+Ee9WZyGyspnhwwPLEXOVpeBQ6po9U=
+
+Name: icons/progress/ani/6@2x.png
+SHA-256-Digest: mKyA1Fy8FUpxroQZAUhNGDk77isoSaiqkR2qJo7x/3I=
+
+Name: icons/progress/ani/5@2x.png
+SHA-256-Digest: fu7kYNKQLS81Jv7s6OuGnMFSxeynDclwOQ8q8CTBRhw=
+
+Name: org/eclipse/ui/forms/IMessageManager.class
+SHA-256-Digest: 8JVylMGtN15qkYY09sR99+JJktfJS26y1ud7iTrXFMg=
+
+Name: org/eclipse/ui/internal/forms/widgets/ImageHyperlinkSegment.clas
+ s
+SHA-256-Digest: CkgO2m/aDYZLQpMHP5Sx0GFM+S5X49QLxxbnNW2ZanA=
+
+Name: org/eclipse/ui/forms/widgets/TableWrapData.class
+SHA-256-Digest: eP0GD/qLL7Bb3kptDW3loDWLzmnwgeTZr6BlCnSgezk=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormTextModel.class
+SHA-256-Digest: wAxSVPPtw7uBTnhyaKPkkyf/QXT5F07hm6GlAyuBASE=
+
+Name: org/eclipse/ui/forms/widgets/Form.class
+SHA-256-Digest: NUEkMVBM5DoUEFDu3+32lD6VWKp+AufulmBwHTrj53Q=
+
+Name: org/eclipse/ui/forms/widgets/ExpandableComposite.class
+SHA-256-Digest: Pb6/811eAaSZSfCo8I58lzg+UYAohPMcljsMjQvzx5g=
+
+Name: org/eclipse/ui/forms/widgets/ScrolledPageBook.class
+SHA-256-Digest: LMWmuk7QwRd7+NaEOO+6RC0RLmjKmDRXyT7ZZy9boM0=
+
+Name: org/eclipse/ui/forms/widgets/FormToolkit$BoldFontHolder.class
+SHA-256-Digest: TYnoeyliEmSaKURfxCSZg+xLndoeDiue5zNA1hs/yeA=
+
+Name: org/eclipse/ui/internal/forms/widgets/TitleRegion$MenuHyperlink.
+ class
+SHA-256-Digest: i0f9rlU3Rf45WRzOW3Gzb2DYr+WhQc317DITLGJ+iXU=
+
+Name: org/eclipse/ui/internal/forms/widgets/SelectionData.class
+SHA-256-Digest: d1VQrbAjcZlAno8fktiW6ec6hG7Dd2m8sbCrYdY5QQE=
+
+Name: org/eclipse/ui/forms/widgets/FormText.class
+SHA-256-Digest: CV72lypXMmFqdGx3fpQT1TQoT2USHyidEcjWCoHZUko=
+
+Name: org/eclipse/ui/internal/forms/widgets/TextSegment.class
+SHA-256-Digest: RbL8UrI/00EP96VPTxhJ9RKkWjvtiqiGRsyFexXp19o=
+
+Name: icons/progress/ani/6.png
+SHA-256-Digest: h9qu/5i1iOg1YoJXuoyo4ApO/oHfAnTMfVttEHk9OoQ=
+
+Name: icons/progress/ani/4.png
+SHA-256-Digest: Td8lGC2CWXOrazWINN+dfOPQd6itcmpK1TwsFe+RBps=
+
+Name: org/eclipse/ui/forms/widgets/ScrolledFormText.class
+SHA-256-Digest: vlpEqhxG2lLXM7GU/ViaCv7eoUAhu9F6hJR7wOBk3ec=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormHeading$1.class
+SHA-256-Digest: k0X0Tznlru4bcUX3ufXAYlYhgsbHaTR6kFagulaf4Dg=
+
+Name: org/eclipse/ui/internal/forms/css/dom/ExpandableCompositeElement
+ Provider.class
+SHA-256-Digest: JQHpqXw2xpm/EZGxyyXeBwoXNxKEhd4Cq1of8APJx6M=
+
+Name: org/eclipse/ui/internal/forms/MessageManager$DefaultPrefixProvid
+ er.class
+SHA-256-Digest: jkT1ighUIroM297I2wNtg+VfT+kFe70LrAPBQB7cxSw=
+
+Name: org/eclipse/ui/forms/editor/IFormPage.class
+SHA-256-Digest: SoT3Aqy36f2ZWfqZ0OZ4fAgjBInI03K+kxUbcP5mf/I=
+
+Name: org/eclipse/ui/forms/widgets/FormText$6.class
+SHA-256-Digest: mjfAs/feUzenTPPjCu/ttGW67VjdBxzUTVw7fP2NuKM=
+
+Name: org/eclipse/ui/internal/forms/widgets/ColumnLayoutUtils.class
+SHA-256-Digest: fCdA8FIl8ScEv/uo771jluUpbbf/v4YsA/oK/cYKE48=
+
+Name: org/eclipse/ui/forms/widgets/ToggleHyperlink$3.class
+SHA-256-Digest: a9dPD9WgktHRV+QJ8Uf+1OG8alT0G8ULkCMEBmYnB6I=
+
+Name: org/eclipse/ui/internal/forms/css/dom/ExpandableCompositeElement
+ .class
+SHA-256-Digest: AQAuoMec4CKp9vR2tb0QKZpoY0fJxnxOOGT+W2mdOeY=
+
+Name: org/eclipse/ui/internal/forms/Messages.class
+SHA-256-Digest: UMepItgjPBm09k6fcAQIgvw6KSzE66+yDNd300Mjxds=
+
+Name: org/eclipse/ui/forms/widgets/Hyperlink$1.class
+SHA-256-Digest: IUkzcp/T42JTFlmJui8E9IZPhYglrjDcgPkQ0cMy6u0=
+
+Name: org/eclipse/ui/forms/widgets/TableWrapLayout$RowSpan.class
+SHA-256-Digest: ZDxYDg2TpQR9+nilgtm++JjEl28/iJkFH2KYVzP4rjQ=
+
+Name: org/eclipse/ui/forms/events/IExpansionListener.class
+SHA-256-Digest: q5Sy+2ng5GfpXRAEVFDcevW7DXc6Cpf6/1mxflOletY=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormHeading$DefaultMessage
+ ToolTipManager.class
+SHA-256-Digest: bXQx1W1cHGWqzOLvZaYF8oyv2KpDXT/S5KXZ/PEMHbc=
+
+Name: org/eclipse/ui/forms/widgets/FormText$2.class
+SHA-256-Digest: kLnyUtO0vsydpXnfOwOFb/3pSDhejC8+PCXeW6LogQo=
+
+Name: org/eclipse/ui/internal/forms/widgets/TextSegment$TextFragment.c
+ lass
+SHA-256-Digest: nIAdU+Bi71ZhJLx1W9F9YL3e4+Rs3XlUAL2QN2C6vxI=
+
+Name: org/eclipse/ui/internal/forms/css/properties/css2/CSSPropertyExp
+ andableCompositeHandler.class
+SHA-256-Digest: 4lvllmESoBsCMJrefeOgAZ+RX25/xf08bXP6wNlHtLw=
+
+Name: org/eclipse/ui/internal/forms/widgets/SWTUtil.class
+SHA-256-Digest: cpcDeKj2MclsAx2TZCHrdB7wrRvE4RIvv8Kom9gcY2Q=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormHeading$MessageRegion.
+ class
+SHA-256-Digest: IqHypZ7Gc79rwm7faLTyFteg2VTmRsdQpPCBnx67Gss=
+
+Name: org/eclipse/ui/forms/events/ExpansionAdapter.class
+SHA-256-Digest: KxIjwL1KjcpYiQkIzcuJLcKNmhWiLe4/HToDpiWJHnA=
+
+Name: org/eclipse/ui/forms/widgets/ToggleHyperlink.class
+SHA-256-Digest: o6GQJ78den2cMhIgtTJ1kVAOiTm5oOTYnK0LZT95TMo=
+
+Name: org/eclipse/ui/internal/forms/widgets/BreakSegment.class
+SHA-256-Digest: H0Vo48aXmjrlrG7Gh8ca9dDaNPRCmUegn3c5T3uU2Ro=
+
+Name: org/eclipse/ui/forms/widgets/LayoutCache.class
+SHA-256-Digest: dVOsEmsb+ae+Qye9XxXGWBWOzaXkN7gnF2jXfjjkvpI=
+
+Name: org/eclipse/ui/forms/widgets/AbstractHyperlink.class
+SHA-256-Digest: eXJUAxJvd4cYzwcNRiE1Bnv0jUYVV1E6Ap1mNFA1EB4=
+
+Name: org/eclipse/ui/forms/widgets/FormText$5.class
+SHA-256-Digest: U7kuvwdl9r6d9jRplIOU32MWIImUsTX0GWzSuCP9tpU=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormImages.class
+SHA-256-Digest: Gi3RSHojxZG745syoAu40GTMG61PLlFP/hFkECfo8pA=
+
+Name: org/eclipse/ui/forms/widgets/FormToolkit.class
+SHA-256-Digest: vilBrX1xbk7frSenaNoKp9WtbzmnU/9r2X/j6woqjb0=
+
+Name: plugin.properties
+SHA-256-Digest: o5aV1+iIfQaOFAzED1o0D5iuPFoBAAE0nkiIMAWr9IM=
+
+Name: org/eclipse/ui/forms/widgets/FormToolkit$VisibilityHandler.class
+SHA-256-Digest: SVadYAMPIB5n42F0usxvl7vZq95ZB17JM1yV4AdhKP0=
+
+Name: org/eclipse/ui/forms/HyperlinkGroup.class
+SHA-256-Digest: PDil2yX6E0esHWzOASnFUYUNZuHUy1LTa1ovPCkqHo8=
+
+Name: org/eclipse/ui/forms/MasterDetailsBlock.class
+SHA-256-Digest: H7mHv1GhBwFmqpgFmovpCIjcBNgZwqHwGcFO9eTRxQ0=
+
+Name: icons/progress/ani/3.png
+SHA-256-Digest: gGRNuW3bhzlZpel79y1h/YV9GZhRPicsboHhzrmVAmo=
+
+Name: org/eclipse/ui/internal/forms/css/dom/FormsElementProvider.class
+SHA-256-Digest: t3oQVOkU3bE0R1pH3WyD+7EzZ/a1sLDBDx2OzHdCbEk=
+
+Name: org/eclipse/ui/internal/forms/widgets/TextSegment$SelectionRange
+ .class
+SHA-256-Digest: liPU7O60XPZQNouVC1NhGsFRvOsQIHdZZgKMvK34FjE=
+
+Name: org/eclipse/ui/forms/IFormPart.class
+SHA-256-Digest: c58Bn3FerpNbNlEztpZAaOkApChqHVrHa9N0QOJ73JY=
+
+Name: org/eclipse/ui/internal/forms/widgets/AggregateHyperlinkSegment.
+ class
+SHA-256-Digest: TUVmA56yULh2ZTxH2GPwTPDVyxzSCMmHIDv/1yMfdb4=
+
+Name: org/eclipse/ui/internal/forms/css/dom/FormElement.class
+SHA-256-Digest: BtPZzlwBg6xOZwX/PrnP2B5MN/NQCrbpxbjWoj7eocY=
+
+Name: org/eclipse/ui/forms/editor/SharedHeaderFormEditor$HeaderForm.cl
+ ass
+SHA-256-Digest: 7WtoT8nuWMzAP9Y1h9tUMkaBh+bS2ir7WzqQ6CSw1Ug=
+
+Name: org/eclipse/ui/internal/forms/widgets/IFocusSelectable.class
+SHA-256-Digest: OHmrECz7mqX9LZRDwp4LNv1q6O7XRzlRvQHqcnC68Lc=
+
+Name: org/eclipse/ui/forms/widgets/ToggleHyperlink$1.class
+SHA-256-Digest: RL3nMOqkaEDgPG96ikUdJFYOPVf3e1wFzcE9RXa4tCw=
+
+Name: org/eclipse/ui/forms/widgets/Hyperlink.class
+SHA-256-Digest: 12KcfuDlKIy0nIjvx312qmgvJwQ7rx7zyQY6Q6jWXc0=
+
+Name: org/eclipse/ui/forms/widgets/FormToolkit$KeyboardHandler.class
+SHA-256-Digest: LpNYdV/ZFyTIX5SIN7K5Hddk3l0vzh1pHyDl8droLEc=
+
+Name: org/eclipse/ui/forms/widgets/ExpandableComposite$3.class
+SHA-256-Digest: NMjlwnf5h6QsHnw+QN8AWkrsGJlcHbgr+uQxUigFVso=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormHeading.class
+SHA-256-Digest: H2phgjOIL/2pQEpHC2LnkG/roYnWAcTvQQUyXAiWuDM=
+
+Name: org/eclipse/ui/forms/widgets/TreeNode.class
+SHA-256-Digest: HxnloplJKkQImaglsWePGeBXKAdqiiR6xldAH3rU5b4=
+
+Name: org/eclipse/ui/forms/HyperlinkSettings.class
+SHA-256-Digest: v8o/BBFjeB9RJmhSj8c1FYBd+P634E5JVy2FAoRJxGU=
+
+Name: icons/progress/ani/1.png
+SHA-256-Digest: G4rsiq8NndlpEGv3UYxir5WhsB5Az+Ji+HNS0JTYI9s=
+
+Name: org/eclipse/ui/forms/IManagedForm.class
+SHA-256-Digest: eHPHHYwqBoJ72Sm9HA5MAjIjEdUdedarjlJUnEYvCrA=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormImages$SimpleSectionIm
+ ageDescriptor.class
+SHA-256-Digest: jlCbAkf/E3HURUo1n1EXDPHDapP1/2Npi2V6m6w+SJQ=
+
+Name: org/eclipse/ui/internal/forms/widgets/ResourceManagerManger.clas
+ s
+SHA-256-Digest: CY8e/1vB2b6mYv8sEhPSVE8tww+XnCQQHae1T9/5+9Y=
+
+Name: org/eclipse/ui/forms/ManagedForm.class
+SHA-256-Digest: TM9Y+gf0V1Wxc3WGwBY9YVNQcVRN5vMwHw4OxdDasgc=
+
+Name: org/eclipse/ui/forms/events/HyperlinkAdapter.class
+SHA-256-Digest: dL8MFxM4e+jQGgSI1tgf7HoFGxpEZLazv1F2d+rH1tY=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormHeading$GradientInfo.c
+ lass
+SHA-256-Digest: mgSc174n8ieWNDJ3sZbEHVS0+/oedc6NogWNSxpXnUA=
+
+Name: org/eclipse/ui/internal/forms/widgets/TitleRegion$HoverListener.
+ class
+SHA-256-Digest: ytfVgxnh+5Y1tO/jODKGJUrrt5LQjYO0TL/LYz+Y5CY=
+
+Name: org/eclipse/ui/internal/forms/widgets/TitleRegion.class
+SHA-256-Digest: Fv8GQG5TgucOFWnAoFpS6tI32CNjoEY0ldwB2U71HNY=
+
+Name: org/eclipse/ui/internal/forms/Messages.properties
+SHA-256-Digest: ckAMwdkMbWFap2yXk/dIS0bQ/EjcCHwuR5CSF5KyduM=
+
+Name: org/eclipse/ui/forms/widgets/Twistie.class
+SHA-256-Digest: xdkfbG5LrhT5UaC/s4EpIu7TEo60WcOxqxKMClCwjmU=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormTextModel$ParseErrorHa
+ ndler.class
+SHA-256-Digest: KXv5wyJNgma5HLfhC9o0Yk9mykP7kEA7q0w/qMXrHgQ=
+
+Name: org/eclipse/ui/forms/widgets/FormText$FormTextLayout.class
+SHA-256-Digest: rMMdE+dhvKwU5A5SDyJzUmRB9MhIHNkE+ULczKKM2I8=
+
+Name: org/eclipse/ui/internal/forms/widgets/ObjectSegment.class
+SHA-256-Digest: tknOU9j5bwNMWEP2Qn8wmeSdykqrATSYuwJbwqqvODA=
+
+Name: org/eclipse/ui/forms/widgets/TableWrapLayout.class
+SHA-256-Digest: p38hkPM+6wXavTKjPpgugksHCgiH305RRwOF63JssCE=
+
+Name: org/eclipse/ui/forms/widgets/ColumnLayout.class
+SHA-256-Digest: VcMUslqyk/c2YRBnU578vNnpOcBUeTrfiGPsULi0L2g=
+
+Name: org/eclipse/ui/forms/IDetailsPage.class
+SHA-256-Digest: zfOltpPhOG/NcKL6uJjuaenhMcEyrlwCij+xBgqlp4k=
+
+Name: org/eclipse/ui/forms/widgets/SizeCache.class
+SHA-256-Digest: VIJkKd5Uwpy8rjryncPTebk+f7dib+yIo2l5pYgImMI=
+
+Name: org/eclipse/ui/forms/DetailsPart$PageBag.class
+SHA-256-Digest: jayWH6PVNqgLxJRSzfAOP4QlqZUcwpHb1+mdqI9/pho=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormImages$SimpleSectionGr
+ adientImageDescriptor.class
+SHA-256-Digest: eDqIFqpGI0JbTUwKiL9k+cVr4GrTm5rnTV8nc0i2gWg=
+
+Name: org/eclipse/ui/forms/editor/FormEditor.class
+SHA-256-Digest: v8yxxcgOFKWGw/5W9xzn+DBZDFLxZUefhWD3Wd87alQ=
+
+Name: org/eclipse/ui/forms/SectionPart$1.class
+SHA-256-Digest: 7zNWP1nkILnPKIz7uwKTbMVmmLaJ4a+NYzqSwNGhkLM=
+
+Name: org/eclipse/ui/internal/forms/MessageManager.class
+SHA-256-Digest: oojGDot23qbPFs6ehwYpN9U+D7I/xc6w3ZT2tg9DWqo=
+
+Name: org/eclipse/ui/forms/events/IHyperlinkListener.class
+SHA-256-Digest: d3KqLm29qx+AkuTTJ0rIRfD2fAmDjexPhFxga87afMQ=
+
+Name: icons/progress/ani/7.png
+SHA-256-Digest: wuh7Kaw8tISfr9l5GDSyUudvfPPUREs5MxB1Fhfi0dw=
+
+Name: org/eclipse/ui/forms/widgets/SharedScrolledComposite.class
+SHA-256-Digest: 6JCSPPu6OztR/znXF/naC7btHtgW0ZzE29qTwTgETiE=
+
+Name: org/eclipse/ui/forms/editor/SharedHeaderFormEditor.class
+SHA-256-Digest: IHBMXg2r6uSj+xxKTBPc+bq80HQxzumSp9dR74ZV47I=
+
+Name: org/eclipse/ui/internal/forms/IMessageToolTipManager.class
+SHA-256-Digest: nGiaomD/0eFuAuiRtjQTZ6rQcwDA3eoHIM5xMjFZeK4=
+
+Name: org/eclipse/ui/forms/IMessage.class
+SHA-256-Digest: kOBIcwFzmmIGjQiJNwEoCAXGF9/kU8FVAiZrpOpLq38=
+
+Name: org/eclipse/ui/forms/widgets/ScrolledForm.class
+SHA-256-Digest: Fwtcc4NA81w9Lvv/dCaWFtD56yGgs4p2vXzF+slTnfU=
+
+Name: icons/progress/ani/3@2x.png
+SHA-256-Digest: GDrKfC1uUgZlN7iqzzXsgLVGbvjxWYsbv1W+hxBdOsk=
+
+Name: org/eclipse/ui/forms/widgets/Form$FormLayout.class
+SHA-256-Digest: d610ce2TNnPRXX94rmwnTXoCJOUFaPhfkDYp83qc00c=
+
+Name: org/eclipse/ui/internal/forms/css/properties/css2/CSSPropertyTit
+ leFormsHandler.class
+SHA-256-Digest: EbX9XPdCRojB/nWjF0Ql53ZGHlt3UXOi18NV1pAB7yU=
+
+Name: icons/progress/ani/8@2x.png
+SHA-256-Digest: iylOypkfwI9A2Dnb2nonOMwwx5OFha94xXTX6P8/Tro=
+
+Name: icons/progress/ani/7@2x.png
+SHA-256-Digest: JLAgLHToa8nUy6TWtP/q8C2x6gnu+40uKuMsZJgPTwY=
+
+Name: icons/progress/ani/4@2x.png
+SHA-256-Digest: gLF0/eEVgtUjmS/MkL028p4HbI/lZBEgIUBSFWbzlbA=
+
+Name: org/eclipse/ui/forms/MasterDetailsBlock$MDSashForm.class
+SHA-256-Digest: rlcsT9sDwVBMpig2Ha5c+ajL1SEzlxEfDit+OntmOCs=
+
+Name: about.html
+SHA-256-Digest: ncO+WCNUIJ0JLCOl/ot53yopwTqvvtVu0qSgblesdYo=
+
+Name: org/eclipse/ui/internal/forms/widgets/WrappedPageBook$PageBookLa
+ yout.class
+SHA-256-Digest: VY6g1os9Z8J3vYjFzCt2eD4cQyWlcBxB9EFjVCJABQ0=
+
+Name: org/eclipse/ui/internal/forms/MessageManager$Message.class
+SHA-256-Digest: JliMgzIkQgyjxh57my5QYM09AFKPdC+w53QTZu2avKk=
+
+Name: org/eclipse/ui/forms/widgets/ExpandableComposite$1.class
+SHA-256-Digest: 7p9jrjY7qO8MM7MLivT6jKk2JhFvs4Deaj+5cTxW+Dw=
+
+Name: org/eclipse/ui/forms/widgets/FormText$3.class
+SHA-256-Digest: 5lNVuyAf9ENfPkGetvTmkdPvVzHuNgkqkqpUWymi/M4=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormImages$SimpleImageDesc
+ riptor.class
+SHA-256-Digest: IymKR2RkHQEn9HGyAYqchaqee22NSmwrGKeN2Szs1zA=
+
+Name: org/eclipse/ui/forms/widgets/Hyperlink$2.class
+SHA-256-Digest: TJCYVDhKUDz0SZkvSn6GzmL43npA7FyI5HyI8UYNtdg=
+
+Name: org/eclipse/ui/internal/forms/widgets/TitleRegion$TitleRegionLay
+ out.class
+SHA-256-Digest: ws5ljOh0MKAknehCuuRY37PaYUHYAqU3vu0RK769oPQ=
+
+Name: org/eclipse/ui/internal/forms/widgets/BusyIndicator$1.class
+SHA-256-Digest: xACgQg4TgTGTIpDkdYne1BQVHEUaNV0UuElXLUBJpu4=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormFonts.class
+SHA-256-Digest: Ny57iusxSYDI5j9I6hRqg16tlXPj27Y/+iMf7g2RNl8=
+
+Name: org/eclipse/ui/forms/IMessagePrefixProvider.class
+SHA-256-Digest: 2G3U9sVrKzr7F/3IjT/kWT/OFWMdZPyCpLIyBxV+2ME=
+
+Name: org/eclipse/ui/internal/forms/widgets/ImageSegment.class
+SHA-256-Digest: h2xEeSAi/WWfFDd0btwH4pwl1SGslhKda84WKM0FN4Q=
+
+Name: org/eclipse/ui/internal/forms/widgets/TextHyperlinkSegment.class
+SHA-256-Digest: vgog1nRV9Jz0mUYZJzQvoaPC8r16qMVFn+wWrR56b9g=
+
+Name: org/eclipse/ui/forms/widgets/Section.class
+SHA-256-Digest: K03K84FdHWqNOn3hQE5PW014OJOhT9OUtjo8Da0bbQY=
+
+Name: org/eclipse/ui/forms/DetailsPart.class
+SHA-256-Digest: tfj7lZ9vy2/zsEYs9im5bzV+TdoE4GMKdRt7Y4VYr/I=
+
+Name: org/eclipse/ui/forms/FormColors.class
+SHA-256-Digest: 2ePSvLvk0Xvc0FBL1BLqZx0dUVjGoeaTFfw3DjDhTGM=
+
+Name: icons/progress/ani/5.png
+SHA-256-Digest: 6nDcjpEVIapvZaCxKCJTVCzbr4sKuTuqDkTwxrhlue8=
+
+Name: org/eclipse/ui/internal/forms/widgets/FormHeading$FormHeadingLay
+ out.class
+SHA-256-Digest: ngdIIRv5tA4W7O07pU5/zoTXKg2LMkYwvoKCjbUf4yU=
+

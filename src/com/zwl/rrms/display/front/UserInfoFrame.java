@@ -232,6 +232,8 @@ public class UserInfoFrame extends BaseFrame {
 				if (btnState.equals(SUBMIT_STATE)) {
 					String phone = phoneField.getText();
 					String pass = String.valueOf(passField.getPassword());
+					if (pass.equals(""))
+						new MsgFrame("密码不能为空").display();
 					String name = phoneField.getText();
 					String address = addressField.getText();
 					Integer gender = femaleBtn.isSelected() ? User.Gender.FEMALE : User.Gender.MALE;
@@ -262,8 +264,9 @@ public class UserInfoFrame extends BaseFrame {
 					changeBtn.setText("提交");
 
 					nameField.setEnabled(true);
-					phoneField.setEnabled(true);
-//					passField.setEnabled(true);
+//					phoneField.setEnabled(true);
+					passField.setEnabled(true);
+					passField.setText("");
 					addressField.setEnabled(true);
 
 					maleBtn.setEnabled(true);

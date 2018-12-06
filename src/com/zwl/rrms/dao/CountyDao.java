@@ -30,6 +30,7 @@ public class CountyDao extends BaseDao {
         while (rs.next()) {
             entities.add((CountyEntity) getObject(CountyEntity.class, rs));
         }
+        close(conn, rs, stmt);
         return entities;
     }
 }

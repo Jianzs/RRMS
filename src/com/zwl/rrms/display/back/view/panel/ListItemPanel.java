@@ -4,8 +4,11 @@ import com.zwl.rrms.common.Session;
 import com.zwl.rrms.constant.ViewRecord;
 import com.zwl.rrms.controller.HouseController;
 import com.zwl.rrms.controller.UserController;
+import com.zwl.rrms.controller.ViewRecordController;
 import com.zwl.rrms.display.back.view.ViewDetailFrame;
+import com.zwl.rrms.display.back.view.ViewListFrame;
 import com.zwl.rrms.display.common.FrameChange;
+import com.zwl.rrms.display.common.MsgFrame;
 import com.zwl.rrms.entity.HouseEntity;
 import com.zwl.rrms.entity.UserEntity;
 import com.zwl.rrms.entity.ViewRecordEntity;
@@ -33,7 +36,7 @@ public class ListItemPanel extends JPanel {
 
 
         HouseEntity house = HouseController.getHouseById(view.getRoomId());
-        UserEntity roomer = UserController.getUserById(view.getRoomId());
+        UserEntity roomer = UserController.getUserById(house.getRoomerId());
 
         this.setLayout(new GridLayout(0, 6, 0, 0));
 
@@ -53,6 +56,19 @@ public class ListItemPanel extends JPanel {
         delBtn.setFont(new Font("Dialog", Font.BOLD, 18));
         this.add(delBtn);
 
+        delBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if (ViewRecordController.delete(view)) {
+                    new MsgFrame("删除成功").display();
+                } else {
+                    new MsgFrame("删除失败").display();
+                }
+                FrameChange.enterFrame(frame, new ViewListFrame().getFrame());
+            }
+        });
+
         JButton changeBtn = new JButton("点击修改");
         changeBtn.setFont(new Font("Dialog", Font.BOLD, 18));
         this.add(changeBtn);
@@ -65,7 +81,7 @@ public class ListItemPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Session.getInstance().setBackViewRecordDetail(view);
+                Session.getInstance().setBackViewRecordDetail(ViewRecordController.getById(view.getId()));
                 FrameChange.enterFrame(frame, new ViewDetailFrame().getFrame());
             }
         });

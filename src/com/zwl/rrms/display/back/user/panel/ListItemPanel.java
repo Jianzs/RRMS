@@ -1,8 +1,12 @@
 package com.zwl.rrms.display.back.user.panel;
 
 import com.zwl.rrms.common.Session;
+import com.zwl.rrms.controller.UserController;
+import com.zwl.rrms.controller.ViewRecordController;
 import com.zwl.rrms.display.back.user.UserDetailFrame;
+import com.zwl.rrms.display.back.user.UserListFrame;
 import com.zwl.rrms.display.common.FrameChange;
+import com.zwl.rrms.display.common.MsgFrame;
 import com.zwl.rrms.entity.UserEntity;
 
 import javax.swing.*;
@@ -39,6 +43,19 @@ public class ListItemPanel extends JPanel {
         JButton delBtn = new JButton("删除");
         delBtn.setFont(new Font("Dialog", Font.BOLD, 18));
         this.add(delBtn);
+
+        delBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if (UserController.delete(user)) {
+                    new MsgFrame("删除成功").display();
+                } else {
+                    new MsgFrame("删除失败").display();
+                }
+                FrameChange.enterFrame(frame, new UserListFrame().getFrame());
+            }
+        });
 
         JButton changeBtn = new JButton("点击修改");
         changeBtn.setFont(new Font("Dialog", Font.BOLD, 18));

@@ -67,4 +67,13 @@ public class ContactController extends BaseController {
         }
         return null;
     }
+
+    public static boolean delete(ContactEntity contact) {
+        try {
+            return ContactDao.deleteById(contact.getId());
+        } catch (SQLException | ClassNotFoundException e) {
+            exceptionHand(e);
+        }
+        return false;
+    }
 }

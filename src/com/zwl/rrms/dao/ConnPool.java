@@ -15,6 +15,8 @@ public class ConnPool {
     private static Set<Connection> activeConn = new HashSet<>();
     private static Queue<Connection> pendingConn = new LinkedList<>();
 
+    private static long startTime;
+
     static {
         try {
             Class.forName(DB.JDBC_DRIVER);
@@ -51,6 +53,8 @@ public class ConnPool {
 
     public static Connection getConnection()
             throws SQLException {
+        startTime = System.currentTimeMillis();
+
         Connection conn = null;
         synchronized (pendingConn) {
             while (!pendingConn.isEmpty()) {
@@ -75,5 +79,6 @@ public class ConnPool {
         synchronized (pendingConn) {
             pendingConn.add(conn);
         }
+        System.out.println(System.currentTimeMillis() - startTime);
     }
 }

@@ -22,6 +22,8 @@ import java.util.List;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class HouseSubmitFrame extends BaseFrame {
 
@@ -34,6 +36,7 @@ public class HouseSubmitFrame extends BaseFrame {
 	private JTextField priceField;
 	private JSpinner maxCustomerSpinner;
 	private JComboBox typeBox;
+	private JComboBox freetimeBox;
 
 	/**
 	 * Launch the application.
@@ -82,7 +85,7 @@ public class HouseSubmitFrame extends BaseFrame {
 		namePanel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
 		mainPanel.add(namePanel);
 
-		JLabel nameLabel = new JLabel("小区名称：");
+		JLabel nameLabel = new JLabel("小 区 名 称：");
 		nameLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		namePanel.add(nameLabel);
 
@@ -99,7 +102,7 @@ public class HouseSubmitFrame extends BaseFrame {
 		addressPanel.add(briefPanel);
 		briefPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
 
-		JLabel addressLabel = new JLabel("地址：");
+		JLabel addressLabel = new JLabel("地      址：");
 		addressLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		briefPanel.add(addressLabel);
 
@@ -137,7 +140,7 @@ public class HouseSubmitFrame extends BaseFrame {
 		typePanel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
 		mainPanel.add(typePanel);
 
-		JLabel typeLabel = new JLabel("房屋类型");
+		JLabel typeLabel = new JLabel("房 屋 类 型: ");
 		typeLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		typePanel.add(typeLabel);
 
@@ -162,11 +165,14 @@ public class HouseSubmitFrame extends BaseFrame {
 		((JSpinner.DefaultEditor)maxCustomerSpinner.getEditor()).getTextField().setColumns(4);
 		maxCustomerPanel.add(maxCustomerSpinner);
 
+		maxCustomerSpinner.addChangeListener(e ->
+				maxCustomerSpinner.setValue(Math.max(1, (Integer) maxCustomerSpinner.getValue())));
+
 		JPanel pricePanel = new JPanel();
 		pricePanel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
 		mainPanel.add(pricePanel);
 
-		JLabel priceLabel = new JLabel("房屋价格：");
+		JLabel priceLabel = new JLabel("房 屋 价 格：");
 		priceLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		priceLabel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
 		pricePanel.add(priceLabel);
@@ -175,6 +181,22 @@ public class HouseSubmitFrame extends BaseFrame {
 		priceField.setColumns(16);
 		priceField.setFont(new Font("Dialog", Font.BOLD, 18));
 		pricePanel.add(priceField);
+
+		JPanel freetimePanel = new JPanel();
+		freetimePanel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
+		mainPanel.add(freetimePanel);
+
+		JLabel freetimeLabel = new JLabel("可申请看房时间：");
+		freetimeLabel.setFont(new Font("Dialog", Font.BOLD, 18));
+		freetimeLabel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
+		freetimePanel.add(freetimeLabel);
+
+		freetimeBox = new JComboBox();
+		freetimeBox.addItem(new ComboItem("周内", House.FreeTime.WEEK));
+		freetimeBox.addItem(new ComboItem("周末", House.FreeTime.WEEKEND));
+		freetimeBox.addItem(new ComboItem("任意", House.FreeTime.ANY_TIME));
+		freetimeBox.setFont(new Font("Dialog", Font.BOLD, 18));
+		freetimePanel.add(freetimeBox);
 
 		JPanel btnPanel = new JPanel();
 		mainPanel.add(btnPanel);
@@ -223,6 +245,7 @@ public class HouseSubmitFrame extends BaseFrame {
 		HouseEntity house = builder.setNeighborhood(neighborhood)
 				.setProvinceId(provinceId)
 				.setCityId(cityId)
+				.setFreetime(((ComboItem) freetimeBox.getSelectedItem()).getValue())
 				.setMaxCustomer((Integer) maxCustomerSpinner.getValue())
 				.setType(((ComboItem)typeBox.getSelectedItem()).getValue())
 				.setCountyId(countyId)

@@ -4,6 +4,7 @@ public interface ViewRecord {
     interface State {
         int NEW = 1;
         int CLOSED = 2;
+        int DELETED = 3;
     }
 
     interface ACK {

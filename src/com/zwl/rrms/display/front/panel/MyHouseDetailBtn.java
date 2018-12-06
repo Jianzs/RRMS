@@ -1,6 +1,7 @@
 package com.zwl.rrms.display.front.panel;
 
 import com.zwl.rrms.display.common.FrameChange;
+import com.zwl.rrms.entity.HouseEntity;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,8 +10,11 @@ import java.awt.event.MouseEvent;
 
 public class MyHouseDetailBtn extends JPanel {
     private JFrame frame;
-    public MyHouseDetailBtn(JFrame frame) {
+    private HouseEntity house;
+    public MyHouseDetailBtn(JFrame frame, HouseEntity house) {
         this.frame = frame;
+        this.house = house;
+
         JPanel btnPanel = this;
         btnPanel.setLayout(new BoxLayout(btnPanel, BoxLayout.X_AXIS));
         btnPanel.setBorder(BorderFactory.createEmptyBorder(10,20,20,10));

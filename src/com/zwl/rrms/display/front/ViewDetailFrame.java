@@ -1,6 +1,7 @@
 package com.zwl.rrms.display.front;
 
 import com.zwl.rrms.common.Session;
+import com.zwl.rrms.constant.House;
 import com.zwl.rrms.constant.ViewRecord;
 import com.zwl.rrms.controller.HouseController;
 import com.zwl.rrms.entity.HouseEntity;
@@ -71,7 +72,7 @@ public class ViewDetailFrame extends BaseFrame {
         Component verticalGlue = Box.createVerticalGlue();
         basePanel.add(verticalGlue);
 
-        JLabel planTimeLabel = new JLabel("计划看房时间：".concat(DateUtil.date2str(viewRecord.getPlanTime())));
+        JLabel planTimeLabel = new JLabel("计划看房时间：".concat(plantime2str(viewRecord.getPlanTime())));
         planTimeLabel.setFont(new Font("Dialog", Font.BOLD, 18));
         basePanel.add(planTimeLabel);
 
@@ -118,6 +119,15 @@ public class ViewDetailFrame extends BaseFrame {
         JLabel label = new JLabel("看房详情");
         label.setFont(new Font("Dialog", Font.BOLD, 32));
         titlePanel.add(label);
+    }
+
+    private String plantime2str(Integer planTime) {
+        switch (planTime){
+            case House.FreeTime.WEEK: return "周内";
+            case House.FreeTime.WEEKEND: return "周末";
+            case House.FreeTime.ANY_TIME: return "任意";
+        }
+        return "null";
     }
 
     private String viewState2str(Integer state) {

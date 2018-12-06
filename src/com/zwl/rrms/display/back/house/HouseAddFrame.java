@@ -221,7 +221,7 @@ public class HouseAddFrame extends BaseFrame {
 
 		JLabel priceLabel = new JLabel("房屋价格：");
 		priceLabel.setFont(new Font("Dialog", Font.BOLD, 18));
-		priceLabel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
+//		priceLabel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
 		pricePanel.add(priceLabel);
 
 		priceField = new JTextField();
@@ -276,6 +276,7 @@ public class HouseAddFrame extends BaseFrame {
 			addressField.setText(house.getAddress());
 			priceField.setText(String.valueOf(house.getRent()));
 			typeBox.setSelectedIndex(house.getType() - 1);
+			stateBox.setSelectedIndex(house.getState() - 1);
 			maxCustomerSpinner.setValue(house.getMaxCustomer());
 
 			submitBtn.addMouseListener(new MouseAdapter() {

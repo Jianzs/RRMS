@@ -1,9 +1,12 @@
 package com.zwl.rrms.display.back.view;
 
 import com.zwl.rrms.common.Session;
+import com.zwl.rrms.constant.House;
 import com.zwl.rrms.constant.ViewRecord;
 import com.zwl.rrms.controller.HouseController;
+import com.zwl.rrms.controller.ViewRecordController;
 import com.zwl.rrms.display.common.BaseFrame;
+import com.zwl.rrms.display.common.FrameChange;
 import com.zwl.rrms.entity.HouseEntity;
 import com.zwl.rrms.entity.ViewRecordEntity;
 import com.zwl.rrms.util.DateUtil;
@@ -15,6 +18,8 @@ import java.awt.Font;
 import java.awt.Component;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.border.EmptyBorder;
 
 public class ViewDetailFrame extends BaseFrame {
@@ -72,7 +77,7 @@ public class ViewDetailFrame extends BaseFrame {
 		Component verticalGlue = Box.createVerticalGlue();
 		basePanel.add(verticalGlue);
 
-		JLabel planTimeLabel = new JLabel("计划看房时间：".concat(DateUtil.date2str(viewRecord.getPlanTime())));
+		JLabel planTimeLabel = new JLabel("计划看房时间：".concat(plantime2str(viewRecord.getPlanTime())));
 		planTimeLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		basePanel.add(planTimeLabel);
 
@@ -119,6 +124,54 @@ public class ViewDetailFrame extends BaseFrame {
 		JLabel label = new JLabel("看房详情");
 		label.setFont(new Font("Dialog", Font.BOLD, 32));
 		titlePanel.add(label);
+
+		JPanel btnPanel = new JPanel();
+		frame.getContentPane().add(btnPanel, BorderLayout.SOUTH);
+
+        JButton returnBtn = new JButton("返回");
+        returnBtn.setFont(new Font("Dialog", Font.BOLD, 18));
+        btnPanel.add(returnBtn);
+
+        returnBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                FrameChange.returnFrame(frame);
+            }
+        });
+
+        JButton ackBtn = new JButton("同意");
+        ackBtn.setFont(new Font("Dialog", Font.BOLD, 18));
+        btnPanel.add(ackBtn);
+
+        ackBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                ViewRecordController.adminAck(viewRecord);
+            }
+        });
+
+        JButton nakBtn = new JButton("拒绝");
+        nakBtn.setFont(new Font("Dialog", Font.BOLD, 18));
+        btnPanel.add(nakBtn);
+
+        nakBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                ViewRecordController.adminNak(viewRecord);
+            }
+        });
+	}
+
+	private String plantime2str(Integer planTime) {
+		switch (planTime){
+			case House.FreeTime.WEEK: return "周内";
+			case House.FreeTime.WEEKEND: return "周末";
+			case House.FreeTime.ANY_TIME: return "任意";
+		}
+		return "null";
 	}
 
 	private String viewState2str(Integer state) {

@@ -2,7 +2,9 @@ package com.zwl.rrms.controller;
 
 import com.zwl.rrms.common.Session;
 import com.zwl.rrms.constant.User;
+import com.zwl.rrms.dao.ContactDao;
 import com.zwl.rrms.dao.UserDao;
+import com.zwl.rrms.entity.ContactEntity;
 import com.zwl.rrms.entity.UserEntity;
 import com.zwl.rrms.util.MD5Util;
 
@@ -121,5 +123,14 @@ public class UserController extends BaseController{
             exceptionHand(e);
         }
         return null;
+    }
+
+    public static boolean delete(UserEntity contact) {
+        try {
+            return UserDao.deleteById(contact.getId());
+        } catch (SQLException | ClassNotFoundException e) {
+            exceptionHand(e);
+        }
+        return false;
     }
 }

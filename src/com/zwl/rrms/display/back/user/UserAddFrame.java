@@ -1,19 +1,26 @@
 package com.zwl.rrms.display.back.user;
 
+import com.zwl.rrms.constant.User;
 import com.zwl.rrms.controller.CityController;
 import com.zwl.rrms.controller.CountyController;
 import com.zwl.rrms.controller.ProvinceController;
+import com.zwl.rrms.controller.UserController;
 import com.zwl.rrms.display.back.common.MenuPanel;
 import com.zwl.rrms.display.back.user.panel.SubMenuPanel;
 import com.zwl.rrms.display.common.BaseFrame;
 import com.zwl.rrms.display.common.ComboItem;
+import com.zwl.rrms.display.common.MsgFrame;
 import com.zwl.rrms.entity.CityEntity;
 import com.zwl.rrms.entity.CountyEntity;
 import com.zwl.rrms.entity.ProvinceEntity;
+import com.zwl.rrms.entity.UserEntity;
+import com.zwl.rrms.util.DateUtil;
 
 import java.awt.*;
 
 import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.border.EmptyBorder;
 
@@ -97,27 +104,23 @@ public class UserAddFrame extends BaseFrame {
 
 		JPanel addressPanel = new JPanel();
 		mainPanel.add(addressPanel);
-		addressPanel.setLayout(new GridLayout(2, 2, 0, 0));
-
-		JPanel briefPanel = new JPanel();
-		addressPanel.add(briefPanel);
-		briefPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
+		addressPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
 		
-		JLabel addressLabel = new JLabel("地址：");
+		JLabel addressLabel = new JLabel("地      址：");
 		addressLabel.setFont(new Font("Dialog", Font.BOLD, 18));
-		briefPanel.add(addressLabel);
+		addressPanel.add(addressLabel);
 
 		provinceBox = new JComboBox();
 		provinceBox.setFont(new Font("Dialog", Font.BOLD, 18));
-		briefPanel.add(provinceBox);
+		addressPanel.add(provinceBox);
 
 		cityBox = new JComboBox();
 		cityBox.setFont(new Font("Dialog", Font.BOLD, 18));
-		briefPanel.add(cityBox);
+		addressPanel.add(cityBox);
 
 		countyBox = new JComboBox();
 		countyBox.setFont(new Font("Dialog", Font.BOLD, 18));
-		briefPanel.add(countyBox);
+		addressPanel.add(countyBox);
 
 		addProvinceItem();
 
@@ -134,15 +137,14 @@ public class UserAddFrame extends BaseFrame {
 
 		addressField = new JTextField();
 		addressField.setFont(new Font("Dialog", Font.BOLD, 18));
-		briefPanel.add(addressField);
+		addressPanel.add(addressField);
 		addressField.setColumns(20);
 		
 		JPanel phonePanel = new JPanel();
-		FlowLayout flowLayout = (FlowLayout) phonePanel.getLayout();
-		flowLayout.setAlignment(FlowLayout.LEFT);
+		phonePanel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
 		mainPanel.add(phonePanel);
 
-		JLabel phoneLabel = new JLabel("手机号：");
+		JLabel phoneLabel = new JLabel("手  机  号：");
 		phoneLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		phonePanel.add(phoneLabel);
 
@@ -152,8 +154,7 @@ public class UserAddFrame extends BaseFrame {
 		phoneField.setColumns(16);
 
 		JPanel birthPanel = new JPanel();
-		FlowLayout flowLayout_1 = (FlowLayout) birthPanel.getLayout();
-		flowLayout_1.setAlignment(FlowLayout.LEFT);
+		birthPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
 		mainPanel.add(birthPanel);
 
 		JLabel birthLabel = new JLabel("出生年月：");
@@ -181,7 +182,7 @@ public class UserAddFrame extends BaseFrame {
 		genderPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
 		mainPanel.add(genderPanel);
 
-		JLabel genderLabel = new JLabel("性别：");
+		JLabel genderLabel = new JLabel("性      别：");
 		genderLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		genderPanel.add(genderLabel);
 
@@ -201,7 +202,7 @@ public class UserAddFrame extends BaseFrame {
 		passPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 5));
 		mainPanel.add(passPanel);
 
-		JLabel passLabel = new JLabel("密码：");
+		JLabel passLabel = new JLabel("密      码：");
 		passLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		passPanel.add(passLabel);
 		
@@ -214,7 +215,41 @@ public class UserAddFrame extends BaseFrame {
 		mainPanel.add(btnPanel);
 		
 		JButton submitBtn = new JButton("提交");
+		submitBtn.setFont(new Font("Dialog", Font.BOLD, 18));
 		btnPanel.add(submitBtn);
+
+		submitBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				String phone = phoneField.getText();
+				String pass = passField.getText();
+				String name = nameField.getText();
+				String address = addressField.getText();
+				Integer gender = femaleBtn.isSelected() ? User.Gender.FEMALE : User.Gender.MALE;
+				Integer provinceId = ((ComboItem) provinceBox.getSelectedItem()).getValue();
+				Integer cityId = ((ComboItem) cityBox.getSelectedItem()).getValue();
+				Integer countyId = ((ComboItem) countyBox.getSelectedItem()).getValue();
+				Integer year = ((ComboItem) yearBox.getSelectedItem()).getValue();
+				Integer month = ((ComboItem) monthBox.getSelectedItem()).getValue();
+
+				UserEntity.Builder builder = new UserEntity.Builder();
+				builder.setName(name)
+						.setPhone(phone)
+						.setPassword(pass)
+						.setProvinceId(provinceId)
+						.setCityId(cityId)
+						.setCountyId(countyId)
+						.setAddress(address)
+						.setGender(gender)
+						.setBirthday(DateUtil.getTime(year, month, 1));
+				if (UserController.register(builder.build())) {
+					new MsgFrame("添加成功。").display();
+				} else {
+					new MsgFrame("添加失败。").display();
+				}
+			}
+		});
 	}
 
 

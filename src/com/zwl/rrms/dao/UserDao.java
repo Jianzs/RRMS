@@ -24,8 +24,9 @@ public class UserDao extends BaseDao {
             "WHERE phone = ?";
 
     private static String save =
-            "insert into user(name, province_id, city_id, county_id, address, phone, birthday, gender, state, password) " +
-            "values (?, ?, ?, ?, ?, ?, ?, ?, ?, md5(?))";
+            "insert into user(name, province_id, city_id, county_id, " +
+                    "address, phone, birthday, gender, state, password, type) " +
+            "values (?, ?, ?, ?, ?, ?, ?, ?, ?, md5(?), ?)";
 
     private static String update =
             "update user\n" +
@@ -34,7 +35,7 @@ public class UserDao extends BaseDao {
             "    city_id = ?,\n" +
             "    county_id = ?,\n" +
             "    address = ?,\n" +
-            "    phone = ?,\n" +
+            "    password = md5(?),\n" +
             "    birthday = ?,\n" +
             "    gender = ?,\n" +
             "    state = ?\n" +
@@ -47,11 +48,16 @@ public class UserDao extends BaseDao {
             "LIMIT ?, ?";
     private static String countAll =
             "select count(*)\n" +
-            "from user\n";
+            "from user\n" +
+            "where state <> ?\n";
     private static String listFuzzyByName =
             "select *\n" +
             "from user\n" +
             "where name like '%%%s%%'";
+
+    public static boolean deleteById(Integer id) throws SQLException, ClassNotFoundException {
+        return deleteById("user", User.State.DELETED, id);
+    }
 
     public static UserEntity getByPhone(String phone)
             throws InvocationTargetException, SQLException, InstantiationException, NoSuchMethodException, IllegalAccessException, ClassNotFoundException {
@@ -89,8 +95,10 @@ public class UserDao extends BaseDao {
         stmt.setInt(8, user.getGender());
         stmt.setInt(9, user.getState());
         stmt.setString(10, user.getPassword());
+        stmt.setInt(11, user.getType());
 
         int res = stmt.executeUpdate();
+        close(conn, null, stmt);
         return res == 1;
     }
 
@@ -108,8 +116,8 @@ public class UserDao extends BaseDao {
         stmt.setInt(8, user.getGender());
         stmt.setInt(9, user.getState());
         stmt.setInt(10, user.getId());
-
         int res = stmt.executeUpdate();
+        close(conn, null, stmt);
         return res == 1;
     }
 
@@ -125,15 +133,19 @@ public class UserDao extends BaseDao {
         while (rs.next()) {
             entities.add((UserEntity) getObject(UserEntity.class, rs));
         }
+        close(conn, rs, stmt);
         return entities;
     }
 
     public static Integer countAll() throws SQLException, ClassNotFoundException {
         Connection conn = getConnection();
         PreparedStatement stmt = conn.prepareStatement(countAll);
+        stmt.setInt(1, User.State.DELETED);
         ResultSet rs = stmt.executeQuery();
         rs.next();
-        return rs.getInt(1);
+        int ans = rs.getInt(1);
+        close(conn, rs, stmt);
+        return ans;
     }
 
     public static List<UserEntity> listByPhone(String text) throws InvocationTargetException, SQLException, InstantiationException, NoSuchMethodException, IllegalAccessException, ClassNotFoundException {
@@ -145,6 +157,7 @@ public class UserDao extends BaseDao {
         while (rs.next()) {
             entities.add((UserEntity) getObject(UserEntity.class, rs));
         }
+        close(conn, rs, stmt);
         return entities;
     }
 
@@ -156,6 +169,7 @@ public class UserDao extends BaseDao {
         while (rs.next()) {
             entities.add((UserEntity) getObject(UserEntity.class, rs));
         }
+        close(conn, rs, stmt);
         return entities;
     }
 }

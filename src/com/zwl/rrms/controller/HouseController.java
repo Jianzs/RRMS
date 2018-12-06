@@ -106,4 +106,13 @@ public class HouseController extends BaseController {
         }
         return false;
     }
+
+    public static boolean delete(HouseEntity contact) {
+        try {
+            return HouseDao.deleteById(contact.getId());
+        } catch (SQLException | ClassNotFoundException e) {
+            exceptionHand(e);
+        }
+        return false;
+    }
 }

@@ -48,4 +48,49 @@ public class ViewRecordController extends BaseController {
         }
         return 1;
     }
+
+    public static boolean delete(ViewRecordEntity contact) {
+        try {
+            return ViewRecordDao.deleteById(contact.getId());
+        } catch (SQLException | ClassNotFoundException e) {
+            exceptionHand(e);
+        }
+        return false;
+    }
+
+    public static boolean create(ViewRecordEntity view) {
+        try {
+            return ViewRecordDao.create(view);
+        } catch (SQLException | ClassNotFoundException e) {
+            exceptionHand(e);
+        }
+        return false;
+    }
+
+    public static boolean adminAck(ViewRecordEntity viewRecord) {
+        try {
+            return ViewRecordDao.updateAdminAckById(ViewRecord.ACK.ACK, viewRecord.getId());
+        } catch (SQLException | ClassNotFoundException e) {
+            exceptionHand(e);
+        }
+        return false;
+    }
+
+    public static boolean adminNak(ViewRecordEntity viewRecord) {
+        try {
+            return ViewRecordDao.updateAdminAckById(ViewRecord.ACK.NAK, viewRecord.getId());
+        } catch (SQLException | ClassNotFoundException e) {
+            exceptionHand(e);
+        }
+        return false;
+    }
+
+    public static ViewRecordEntity getById(Integer id) {
+        try {
+            return ViewRecordDao.getById(id);
+        } catch (SQLException | ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            exceptionHand(e);
+        }
+        return null;
+    }
 }

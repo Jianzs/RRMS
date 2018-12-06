@@ -84,7 +84,7 @@ public class HouseDetailFrame extends BaseFrame {
 		roomerInfoPanel.add(roomerPhoneLabel);
 
 
-		JPanel btnPanel = btnClass.getConstructor(JFrame.class).newInstance(frame);
+		JPanel btnPanel = btnClass.getConstructor(JFrame.class, HouseEntity.class).newInstance(frame, house);
 //		JPanel btnPanel = new JPanel();
 		roomerPanel.add(btnPanel, BorderLayout.SOUTH);
 //		btnPanel.setLayout(new BoxLayout(btnPanel, BoxLayout.X_AXIS));

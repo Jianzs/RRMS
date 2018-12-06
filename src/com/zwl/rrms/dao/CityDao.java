@@ -31,6 +31,7 @@ public class CityDao extends BaseDao {
         while (rs.next()) {
             entities.add((CityEntity) getObject(CityEntity.class, rs));
         }
+        close(conn, rs, stmt);
         return entities;
     }
 }

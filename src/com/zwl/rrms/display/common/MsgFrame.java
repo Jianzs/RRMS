@@ -2,11 +2,11 @@ package com.zwl.rrms.display.common;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.BoxLayout;
+import javax.swing.*;
 import java.awt.BorderLayout;
-import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MsgFrame {
 
@@ -40,13 +40,28 @@ public class MsgFrame {
 	 */
 	private void initialize(String content) {
 		frame = new JFrame();
-		frame.setBounds(400, 300, 450, 300);
+		frame.setBounds(100, 100, 300, 200);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
-		
-		JLabel label = new JLabel("提示：".concat(content));
-		label.setFont(new Font("Dialog", Font.BOLD, 24));
-		frame.getContentPane().add(label, BorderLayout.CENTER);
+
+
+		new Thread(() -> {
+			JLabel label = new JLabel("提示：".concat(content));
+			label.setFont(new Font("Dialog", Font.BOLD, 24));
+			frame.getContentPane().add(label, BorderLayout.CENTER);
+
+			JButton closeBtn = new JButton("关闭");
+			closeBtn.setFont(new Font("Dialog", Font.BOLD, 24));
+			frame.getContentPane().add(closeBtn, BorderLayout.SOUTH);
+
+			closeBtn.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					super.mouseClicked(e);
+					frame.dispose();
+				}
+			});
+		}).start();
 	}
 
 	public void display() {

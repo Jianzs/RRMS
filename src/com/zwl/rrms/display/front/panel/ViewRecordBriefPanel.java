@@ -1,8 +1,10 @@
 package com.zwl.rrms.display.front.panel;
 
 import com.zwl.rrms.common.Session;
+import com.zwl.rrms.constant.House;
 import com.zwl.rrms.constant.ViewRecord;
 import com.zwl.rrms.controller.HouseController;
+import com.zwl.rrms.controller.ViewRecordController;
 import com.zwl.rrms.display.common.FrameChange;
 import com.zwl.rrms.display.front.ViewDetailFrame;
 import com.zwl.rrms.entity.HouseEntity;
@@ -40,7 +42,7 @@ public class ViewRecordBriefPanel extends JPanel {
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
         add(rightPanel);
 
-        JLabel planPanel = new JLabel("计划看房时间：" + DateUtil.date2str(view.getPlanTime()));
+        JLabel planPanel = new JLabel("计划看房时间：" + plantime2str(view.getPlanTime()));
         planPanel.setFont(new Font("Dialog", Font.BOLD, 18));
         rightPanel.add(planPanel);
 
@@ -58,11 +60,20 @@ public class ViewRecordBriefPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Session.getInstance().setViewRecord(view);
+                Session.getInstance().setViewRecord(ViewRecordController.getById(view.getId()));
                 // TODO change to ViewDetailFrame
                 FrameChange.enterFrame(frame, new ViewDetailFrame().getFrame());
             }
         });
+    }
+
+    private String plantime2str(Integer planTime) {
+        switch (planTime){
+            case House.FreeTime.WEEK: return "周内";
+            case House.FreeTime.WEEKEND: return "周末";
+            case House.FreeTime.ANY_TIME: return "任意";
+        }
+        return "null";
     }
 
     private String state2str() {

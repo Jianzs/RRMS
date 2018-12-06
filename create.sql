@@ -5,8 +5,8 @@ create table contact
   start_time bigint null,
   end_time bigint null,
   state tinyint null,
-  room_id    int           null,
-  renter_id  int           null,
+  roomId    int           null,
+  renterId  int           null,
   rent       double(10, 3) null,
   lease_term varchar(115)  null,
   remark     text          null,
@@ -55,12 +55,12 @@ create table user
 create table view_record
 (
   id int auto_increment,
-  plan_time     bigint null,
-  renter_id     int      null,
-  room_id       int      null,
+  planTime     bigint null,
+  renterId     int      null,
+  roomId       int      null,
   description   text     null,
-  roomer_ack    tinyint  null,
-  admin_ack     tinyint  null,
+  roomerAck    tinyint  null,
+  adminAck     tinyint  null,
   state         tinyint  null,
   primary key (id)
 );

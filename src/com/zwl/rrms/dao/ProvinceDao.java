@@ -30,6 +30,7 @@ public class ProvinceDao extends BaseDao{
         while (rs.next()) {
             entities.add((ProvinceEntity) getObject(ProvinceEntity.class, rs));
         }
+        close(conn, rs, stmt);
         return entities;
     }
 }

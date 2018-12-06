@@ -220,7 +220,7 @@ public class UserRegisterFrame extends BaseFrame {
 				super.mouseClicked(e);
 				String phone = phoneField.getText();
 				String pass = String.valueOf(passField.getPassword());
-				String name = phoneField.getText();
+				String name = nameField.getText();
 				String address = addressField.getText();
 				Integer gender = femaleBtn.isSelected() ? User.Gender.FEMALE : User.Gender.MALE;
 				Integer provinceId = ((ComboItem) provinceBox.getSelectedItem()).getValue();

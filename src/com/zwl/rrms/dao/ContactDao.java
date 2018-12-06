@@ -1,5 +1,6 @@
 package com.zwl.rrms.dao;
 
+import com.zwl.rrms.constant.Contact;
 import com.zwl.rrms.constant.Parameter;
 import com.zwl.rrms.entity.ContactEntity;
 import com.zwl.rrms.entity.ViewRecordEntity;
@@ -82,6 +83,7 @@ public class ContactDao extends BaseDao {
         while (rs.next()) {
             entities.add((ContactEntity) getObject(ContactEntity.class, rs));
         }
+        close(conn, rs, stmt);
         return entities;
     }
 
@@ -90,7 +92,9 @@ public class ContactDao extends BaseDao {
         PreparedStatement stmt = conn.prepareStatement(countAll);
         ResultSet rs = stmt.executeQuery();
         rs.next();
-        return rs.getInt(1);
+        int ans = rs.getInt(1);
+        close(conn, rs, stmt);
+        return ans;
     }
 
     public static List<ContactEntity> listByRoomerPhone(String text) throws InvocationTargetException, SQLException, InstantiationException, NoSuchMethodException, IllegalAccessException, ClassNotFoundException {
@@ -102,6 +106,7 @@ public class ContactDao extends BaseDao {
         while (rs.next()) {
             entities.add((ContactEntity) getObject(ContactEntity.class, rs));
         }
+        close(conn, rs, stmt);
         return entities;
     }
 
@@ -114,6 +119,7 @@ public class ContactDao extends BaseDao {
         while (rs.next()) {
             entities.add((ContactEntity) getObject(ContactEntity.class, rs));
         }
+        close(conn, rs, stmt);
         return entities;
     }
 
@@ -125,10 +131,15 @@ public class ContactDao extends BaseDao {
         while (rs.next()) {
             entities.add((ContactEntity) getObject(ContactEntity.class, rs));
         }
+        close(conn, rs, stmt);
         return entities;
     }
 
     public static ContactEntity getById(int id) throws NoSuchMethodException, InstantiationException, SQLException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
         return (ContactEntity) getById(ContactEntity.class, "contact", id);
+    }
+
+    public static boolean deleteById(Integer id) throws SQLException, ClassNotFoundException {
+        return deleteById("contact", Contact.State.DELETED, id);
     }
 }

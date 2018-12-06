@@ -12,14 +12,21 @@ public abstract class BaseDao {
             "FROM %s " +
             "WHERE id = ?";
 
+    private static String deleteById =
+            "UPDATE %s " +
+            "SET state = ? " +
+            "WHERE id = ? ";
+
     protected static Connection getConnection() throws ClassNotFoundException, SQLException {
         // 打开链接
         return ConnPool.getConnection();
     }
 
     protected static void close(Connection conn, ResultSet rs, Statement stmt) throws SQLException {
-        rs.close();
-        stmt.close();
+        if (rs != null)
+            rs.close();
+        if (stmt != null)
+            stmt.close();
         ConnPool.close(conn);
     }
 
@@ -39,6 +46,17 @@ public abstract class BaseDao {
         close(conn, rs, stmt);
 
         return obj;
+    }
+
+    // deleteById 删除对象
+    protected static boolean deleteById(String tableName, Integer state, Integer id) throws SQLException, ClassNotFoundException {
+        Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement(String.format(deleteById, tableName));
+        stmt.setInt(1, state);
+        stmt.setInt(2, id);
+        int i = stmt.executeUpdate();
+        close(conn, null, stmt);
+        return i > 0;
     }
 
     // 通过反射生成对象

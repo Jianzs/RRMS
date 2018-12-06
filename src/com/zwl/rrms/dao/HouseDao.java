@@ -1,5 +1,6 @@
 package com.zwl.rrms.dao;
 
+import com.zwl.rrms.constant.House;
 import com.zwl.rrms.constant.Parameter;
 import com.zwl.rrms.constant.User;
 import com.zwl.rrms.entity.HouseEntity;
@@ -142,7 +143,9 @@ public class HouseDao extends BaseDao {
         stmt.setInt(1, uid);
         ResultSet rs = stmt.executeQuery();
         rs.next();
-        return rs.getInt(1);
+        int ans = rs.getInt(1);
+        close(conn, rs, stmt);
+        return ans;
     }
 
     public static List<HouseEntity> listAllByPage(Integer page)
@@ -157,6 +160,7 @@ public class HouseDao extends BaseDao {
         while (rs.next()){
             entities.add((HouseEntity) getObject(HouseEntity.class, rs));
         }
+        close(conn, rs, stmt);
         return entities;
     }
 
@@ -169,6 +173,7 @@ public class HouseDao extends BaseDao {
         while (rs.next()) {
             entities.add((HouseEntity) getObject(HouseEntity.class, rs));
         }
+        close(conn, rs, stmt);
         return entities;
     }
 
@@ -182,6 +187,7 @@ public class HouseDao extends BaseDao {
         while (rs.next()) {
             entities.add((HouseEntity) getObject(HouseEntity.class, rs));
         }
+        close(conn, rs, stmt);
         return entities;
     }
 
@@ -190,7 +196,9 @@ public class HouseDao extends BaseDao {
         PreparedStatement stmt = conn.prepareStatement(countAll);
         ResultSet rs = stmt.executeQuery();
         rs.next();
-        return rs.getInt(1);
+        int ans = rs.getInt(1);
+        close(conn, rs, stmt);
+        return ans;
     }
 
     public static boolean create(HouseEntity house) throws SQLException, ClassNotFoundException {
@@ -213,7 +221,12 @@ public class HouseDao extends BaseDao {
 
         System.out.println(house.getServiceCharge());
         int i = stmt.executeUpdate();
+        close(conn, null, stmt);
         return i > 0;
+    }
+
+    public static boolean deleteById(Integer id) throws SQLException, ClassNotFoundException {
+        return deleteById("house", House.State.DELETED, id);
     }
 
     public static boolean update(HouseEntity house) throws SQLException, ClassNotFoundException {
@@ -237,6 +250,7 @@ public class HouseDao extends BaseDao {
 
         System.out.println(house.getServiceCharge());
         int i = stmt.executeUpdate();
+        close(conn, null, stmt);
         return i > 0;
     }
 }
