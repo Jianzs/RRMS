@@ -1,5 +1,6 @@
 package com.zwl.rrms.display.back.common;
 
+import com.zwl.rrms.common.Session;
 import com.zwl.rrms.display.back.contact.ContactListFrame;
 import com.zwl.rrms.display.back.house.HouseListFrame;
 import com.zwl.rrms.display.back.user.UserListFrame;
@@ -26,6 +27,7 @@ public class MenuPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                Session.getInstance().setContact(false);
                 FrameChange.enterFrame(frame, new HouseListFrame().getFrame());
             }
         });
@@ -38,6 +40,7 @@ public class MenuPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                Session.getInstance().setContact(false);
                 FrameChange.enterFrame(frame, new UserListFrame().getFrame());
             }
         });
@@ -50,6 +53,7 @@ public class MenuPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                Session.getInstance().setContact(false);
                 FrameChange.enterFrame(frame, new ViewListFrame().getFrame());
             }
         });
@@ -62,6 +66,7 @@ public class MenuPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                Session.getInstance().setContact(false);
                 FrameChange.enterFrame(frame, new ContactListFrame().getFrame());
             }
         });

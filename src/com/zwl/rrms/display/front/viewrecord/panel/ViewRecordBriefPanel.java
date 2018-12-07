@@ -1,4 +1,4 @@
-package com.zwl.rrms.display.front.panel;
+package com.zwl.rrms.display.front.viewrecord.panel;
 
 import com.zwl.rrms.common.Session;
 import com.zwl.rrms.constant.House;
@@ -6,10 +6,11 @@ import com.zwl.rrms.constant.ViewRecord;
 import com.zwl.rrms.controller.HouseController;
 import com.zwl.rrms.controller.ViewRecordController;
 import com.zwl.rrms.display.common.FrameChange;
-import com.zwl.rrms.display.front.ViewDetailFrame;
+import com.zwl.rrms.display.front.house.HouseDetailFrame;
+import com.zwl.rrms.display.front.house.panel.MarketHouseDetailBtn;
+import com.zwl.rrms.display.front.viewrecord.ViewDetailFrame;
 import com.zwl.rrms.entity.HouseEntity;
 import com.zwl.rrms.entity.ViewRecordEntity;
-import com.zwl.rrms.util.DateUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +18,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class ViewRecordBriefPanel extends JPanel {
+    private static int color = 1;
+
+
     private JFrame frame;
     private ViewRecordEntity view;
     private HouseEntity house;
@@ -26,31 +30,29 @@ public class ViewRecordBriefPanel extends JPanel {
         this.view = view;
         this.house = HouseController.getHouseById(view.getRoomId());
 
-        setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+        if (color == 1)
+            this.setBackground(new Color(218, 247, 166));
+        else
+            this.setBackground(new Color(121, 223, 214));
+
+        setLayout(new GridLayout(1, 5));
         setBorder(BorderFactory.createEmptyBorder(10,20,5,15));
-        JPanel leftPanel = new JPanel();
-        leftPanel.setLayout(new FlowLayout());
-        add(leftPanel);
 
-        JLabel neiLabel = new JLabel("小区名称：" + house.getNeighborhood());
+        JLabel neiLabel = new JLabel(house.getNeighborhood());
         neiLabel.setFont(new Font("Dialog", Font.BOLD, 18));
-        leftPanel.add(neiLabel);
+        add(neiLabel);
 
-        add(Box.createHorizontalGlue());
-
-        JPanel rightPanel = new JPanel();
-        rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
-        add(rightPanel);
-
-        JLabel planPanel = new JLabel("计划看房时间：" + plantime2str(view.getPlanTime()));
+        JLabel planPanel = new JLabel(plantime2str(view.getPlanTime()));
         planPanel.setFont(new Font("Dialog", Font.BOLD, 18));
-        rightPanel.add(planPanel);
+        add(planPanel);
 
-        JLabel stateLabel = new JLabel("状态：".concat(state2str()));
-        stateLabel.setFont(new Font("Dialog", Font.BOLD, 18));
-        rightPanel.add(stateLabel);
+        JLabel adminStateLabel = new JLabel(state2str(view.getAdminAck()));
+        adminStateLabel.setFont(new Font("Dialog", Font.BOLD, 18));
+        add(adminStateLabel);
 
-        add(Box.createHorizontalGlue());
+        JLabel roomerStateLabel = new JLabel(state2str(view.getRoomerAck()));
+        roomerStateLabel.setFont(new Font("Dialog", Font.BOLD, 18));
+        add(roomerStateLabel);
 
         JButton detailBtn = new JButton("查看详情");
         detailBtn.setFont(new Font("Dialog", Font.BOLD, 18));
@@ -61,10 +63,12 @@ public class ViewRecordBriefPanel extends JPanel {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Session.getInstance().setViewRecord(ViewRecordController.getById(view.getId()));
-                // TODO change to ViewDetailFrame
+
                 FrameChange.enterFrame(frame, new ViewDetailFrame().getFrame());
             }
         });
+
+        color = (color + 1) % 2;
     }
 
     private String plantime2str(Integer planTime) {
@@ -76,22 +80,14 @@ public class ViewRecordBriefPanel extends JPanel {
         return "null";
     }
 
-    private String state2str() {
+    private String state2str(Integer state) {
         StringBuilder sb = new StringBuilder();
-        if (view.getAdminAck().equals(ViewRecord.ACK.ACK)) {
-            sb.append("业务员已确认");
-        } else if (view.getAdminAck().equals(ViewRecord.ACK.NO_RESPONSE)){
-            sb.append("业务员未回复");
+        if (state.equals(ViewRecord.ACK.ACK)) {
+            sb.append("同意");
+        } else if (state.equals(ViewRecord.ACK.NO_RESPONSE)){
+            sb.append("未回复");
         } else {
-            sb.append("业务员已拒绝");
-        }
-        sb.append(",");
-        if (view.getRoomerAck().equals(ViewRecord.ACK.ACK)) {
-            sb.append("房主已确认");
-        } else if (view.getRoomerAck().equals(ViewRecord.ACK.NO_RESPONSE)){
-            sb.append("房主未回复");
-        } else {
-            sb.append("房主已拒绝");
+            sb.append("拒绝");
         }
         return sb.toString();
     }

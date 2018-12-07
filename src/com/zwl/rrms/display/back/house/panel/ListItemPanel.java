@@ -10,6 +10,7 @@ import com.zwl.rrms.display.back.house.HouseDetailFrame;
 import com.zwl.rrms.display.back.user.UserDetailFrame;
 import com.zwl.rrms.display.common.FrameChange;
 import com.zwl.rrms.display.common.MsgFrame;
+import com.zwl.rrms.display.common.ScaleIcon;
 import com.zwl.rrms.entity.HouseEntity;
 import com.zwl.rrms.entity.UserEntity;
 
@@ -36,7 +37,11 @@ public class ListItemPanel extends JPanel {
             this.setBackground(new Color(121, 223, 214));
         color = (color + 1) % 2;
 
-        this.setLayout(new GridLayout(0, 6, 0, 0));
+        this.setLayout(new GridLayout(1, 7));
+        setBorder(BorderFactory.createEmptyBorder(10,20,5,15));
+
+        JLabel picLabel = new JLabel(new ScaleIcon(house.getPicture()));
+        this.add(picLabel);
 
         JLabel nameLabel = new JLabel(house.getNeighborhood());
         nameLabel.setFont(new Font("Dialog", Font.BOLD, 18));

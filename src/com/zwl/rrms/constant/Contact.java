@@ -11,4 +11,9 @@ public interface Contact {
         int RENTER_PHONE = 2;
         int NEIGHBORHOOD = 3;
     }
+
+    interface Role {
+        int ROOMER = 1;
+        int RENTER = 2;
+    }
 }

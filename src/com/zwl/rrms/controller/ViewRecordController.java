@@ -93,4 +93,13 @@ public class ViewRecordController extends BaseController {
         }
         return null;
     }
+
+    public static List<ViewRecordEntity> listByState(Integer roomer, Integer admin) {
+        try {
+            return ViewRecordDao.listByState(roomer, admin, Session.getInstance().getUser().getId());
+        } catch (InvocationTargetException | SQLException | NoSuchMethodException | InstantiationException | ClassNotFoundException | IllegalAccessException e) {
+            exceptionHand(e);
+        }
+        return null;
+    }
 }

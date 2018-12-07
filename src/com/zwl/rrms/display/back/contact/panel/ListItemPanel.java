@@ -38,11 +38,11 @@ public class ListItemPanel extends JPanel {
 
         this.setLayout(new GridLayout(0, 5, 0, 0));
 
-        JLabel roomerLabel = new JLabel(roomer.getName());
+        JLabel roomerLabel = new JLabel(roomer != null ? roomer.getName() : "null");
         roomerLabel.setFont(new Font("Dialog", Font.BOLD, 18));
         this.add(roomerLabel);
 
-        JLabel renterLabel = new JLabel(renter.getName());
+        JLabel renterLabel = new JLabel(renter != null ? renter.getName() : "null");
         renterLabel.setFont(new Font("Dialog", Font.BOLD, 18));
         this.add(renterLabel);
 

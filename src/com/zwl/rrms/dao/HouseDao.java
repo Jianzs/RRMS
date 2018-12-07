@@ -36,6 +36,7 @@ public class HouseDao extends BaseDao {
     private static String listAll =
             "SELECT * " +
             "FROM house " +
+            "WHERE state <> ? " +
             "LIMIT ?, ?";
 
     private static String listFuzzyByNeighborhood =
@@ -152,8 +153,9 @@ public class HouseDao extends BaseDao {
             throws InvocationTargetException, SQLException, InstantiationException, NoSuchMethodException, IllegalAccessException, ClassNotFoundException {
         Connection conn = getConnection();
         PreparedStatement stmt = conn.prepareStatement(listAll);
-        stmt.setInt(1, Parameter.NUM_HOUSE_PER_PAGE * (page - 1));
-        stmt.setInt(2, Parameter.NUM_HOUSE_PER_PAGE);
+        stmt.setInt(1, House.State.DELETED);
+        stmt.setInt(2, Parameter.NUM_HOUSE_PER_PAGE * (page - 1));
+        stmt.setInt(3, Parameter.NUM_HOUSE_PER_PAGE);
         ResultSet rs = stmt.executeQuery();
 
         List<HouseEntity> entities = new ArrayList<>();

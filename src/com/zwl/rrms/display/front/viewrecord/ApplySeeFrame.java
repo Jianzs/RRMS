@@ -1,11 +1,13 @@
-package com.zwl.rrms.display.front;
+package com.zwl.rrms.display.front.viewrecord;
 
 import com.zwl.rrms.common.Session;
 import com.zwl.rrms.constant.House;
 import com.zwl.rrms.controller.UserController;
 import com.zwl.rrms.controller.ViewRecordController;
 import com.zwl.rrms.display.common.ComboItem;
+import com.zwl.rrms.display.common.FrameChange;
 import com.zwl.rrms.display.common.MsgFrame;
+import com.zwl.rrms.display.common.BaseFrame;
 import com.zwl.rrms.entity.HouseEntity;
 import com.zwl.rrms.entity.UserEntity;
 import com.zwl.rrms.entity.ViewRecordEntity;
@@ -111,6 +113,18 @@ public class ApplySeeFrame extends BaseFrame {
 				}else  {
 					new MsgFrame("提交失败").display();
 				}
+			}
+		});
+
+		JButton returnBtn = new JButton("提交");
+		returnBtn.setFont(new Font("Dialog", Font.BOLD, 18));
+		btnPanel.add(returnBtn);
+
+		returnBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				FrameChange.returnFrame(frame);
 			}
 		});
 	}

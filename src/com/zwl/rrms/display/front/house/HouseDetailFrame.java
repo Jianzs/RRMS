@@ -1,9 +1,14 @@
-package com.zwl.rrms.display.front;
+package com.zwl.rrms.display.front.house;
 
 import com.zwl.rrms.controller.*;
+import com.zwl.rrms.display.common.BaseFrame;
+import com.zwl.rrms.display.common.FrameChange;
+import com.zwl.rrms.display.common.ScaleIcon;
 import com.zwl.rrms.entity.*;
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.lang.reflect.InvocationTargetException;
 
 import javax.swing.*;
@@ -60,10 +65,11 @@ public class HouseDetailFrame extends BaseFrame {
 		JPanel picPanel = new JPanel();
 		frame.getContentPane().add(picPanel, BorderLayout.WEST);
 		picPanel.setPreferredSize(new Dimension(400, 400));
-		picPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 10, 10));
+		picPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 10, 30));
 
-		JLabel picLabel = new JLabel("图片");
-		picLabel.setFont(new Font("Dialog", Font.BOLD, 20));
+		JLabel picLabel = new JLabel(new ScaleIcon(house.getPicture()));
+//		picLabel.setFont(new Font("Dialog", Font.BOLD, 20));
+		picLabel.setPreferredSize(new Dimension(300, 500));
 		picPanel.add(picLabel);
 
 		JPanel roomerPanel = new JPanel();
@@ -133,6 +139,21 @@ public class HouseDetailFrame extends BaseFrame {
 		titlePanel.add(titleLable);
 		frame.setBounds(300, 200, 1024, 768);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+//		JPanel returnPanel = new JPanel();
+//		frame.getContentPane().add(returnPanel, BorderLayout.SOUTH);
+//
+//		JButton returnBtn = new JButton("返回");
+//        returnBtn.setFont(new Font("Dialog", Font.BOLD, 18));
+//        returnPanel.add(returnBtn);
+//
+//        returnBtn.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//                super.mouseClicked(e);
+//                FrameChange.returnFrame(frame);
+//            }
+//        });
 	}
 
 }

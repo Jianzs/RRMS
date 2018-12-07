@@ -1,7 +1,10 @@
 package com.zwl.rrms.display.front;
 
 import com.zwl.rrms.controller.UserController;
+import com.zwl.rrms.display.common.BaseFrame;
 import com.zwl.rrms.display.common.FrameChange;
+import com.zwl.rrms.display.front.house.HouseMarketFrame;
+import com.zwl.rrms.display.front.user.UserRegisterFrame;
 
 import java.awt.EventQueue;
 

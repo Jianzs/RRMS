@@ -120,11 +120,15 @@ private JTextField searchField;
 
 		listPanel = new JPanel();
 		mainPanel.add(listPanel);
-		listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.Y_AXIS));
+		listPanel.setLayout(new GridLayout(Parameter.NUM_HOUSE_PER_PAGE + 1 , 1));
 
 		headPanel = new JPanel();
 		listPanel.add(headPanel);
-		headPanel.setLayout(new GridLayout(0, 6, 0, 0));
+		headPanel.setLayout(new GridLayout(0, 7, 0, 0));
+
+		JLabel picLable = new JLabel("图片");
+		picLable.setFont(new Font("Dialog", Font.BOLD, 18));
+		headPanel.add(picLable);
 
 		JLabel nameLabel = new JLabel("小区名称");
 		nameLabel.setFont(new Font("Dialog", Font.BOLD, 18));

@@ -1,6 +1,7 @@
 package com.zwl.rrms.display.back.common;
 
 import com.zwl.rrms.common.Session;
+import com.zwl.rrms.constant.Contact;
 import com.zwl.rrms.entity.UserEntity;
 
 import javax.swing.*;
@@ -42,7 +43,15 @@ public class UserListItemPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Session.getInstance().setSelectedUser(user);
+                if (Session.getInstance().isContact()) {
+                    if (Session.getInstance().getRole().equals(Contact.Role.ROOMER)) {
+                        Session.getInstance().setAddContactRoomer(user);
+                    } else {
+                        Session.getInstance().setAddContactRenter(user);
+                    }
+                } else {
+                    Session.getInstance().setSelectedUser(user);
+                }
                 frame.dispose();
             }
         });

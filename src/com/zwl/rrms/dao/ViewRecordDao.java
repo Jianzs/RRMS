@@ -22,9 +22,15 @@ public class ViewRecordDao extends BaseDao {
                     "AND renter_id = ? " +
             "LIMIT ?, ?";
 
+    private static String listByState =
+            "SELECT * " +
+            "FROM view_record " +
+            "WHERE renter_id = ? ";
+
     private static String listAll =
             "SELECT * " +
             "FROM view_record " +
+            "WHERE state <> ? " +
             "LIMIT ?, ?";
 
     private static String countAll =
@@ -79,8 +85,9 @@ public class ViewRecordDao extends BaseDao {
             throws InvocationTargetException, SQLException, InstantiationException, NoSuchMethodException, IllegalAccessException, ClassNotFoundException {
         Connection conn = getConnection();
         PreparedStatement stmt = conn.prepareStatement(listAll);
-        stmt.setInt(1, Parameter.NUM_HOUSE_PER_PAGE * (page - 1));
-        stmt.setInt(2, Parameter.NUM_HOUSE_PER_PAGE);
+        stmt.setInt(1, ViewRecord.State.DELETED);
+        stmt.setInt(2, Parameter.NUM_HOUSE_PER_PAGE * (page - 1));
+        stmt.setInt(3, Parameter.NUM_HOUSE_PER_PAGE);
         ResultSet rs = stmt.executeQuery();
 
         List<ViewRecordEntity> entities = new ArrayList<>();
@@ -132,5 +139,25 @@ public class ViewRecordDao extends BaseDao {
 
     public static ViewRecordEntity getById(Integer id) throws NoSuchMethodException, InstantiationException, SQLException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
         return (ViewRecordEntity) getById(ViewRecordEntity.class, "view_record", id);
+    }
+
+    public static List<ViewRecordEntity> listByState(Integer roomer, Integer admin, Integer uid) throws InvocationTargetException, SQLException, InstantiationException, NoSuchMethodException, IllegalAccessException, ClassNotFoundException {
+        Connection conn = getConnection();
+        StringBuilder sb = new StringBuilder(listByState);
+        if (roomer != -1) sb.append("AND roomer_ack = ? ");
+        if (admin != -1) sb.append("AND admin_ack = ?");
+        PreparedStatement stmt = conn.prepareStatement(sb.toString());
+        int i = 1;
+        stmt.setInt(i++, uid);
+        if (roomer != -1)  stmt.setInt(i++, roomer);
+        if (admin != -1) stmt.setInt(i, admin);
+        System.out.println(stmt);
+        ResultSet rs = stmt.executeQuery();
+
+        List<ViewRecordEntity> views = new ArrayList<>();
+        while (rs.next()) {
+            views.add((ViewRecordEntity) getObject(ViewRecordEntity.class, rs));
+        }
+        return views;
     }
 }

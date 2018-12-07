@@ -1,4 +1,4 @@
-package com.zwl.rrms.display.front;
+package com.zwl.rrms.display.front.user;
 
 import java.awt.EventQueue;
 

@@ -1,5 +1,6 @@
 package com.zwl.rrms.display.back.contact.panel;
 
+import com.zwl.rrms.common.Session;
 import com.zwl.rrms.display.back.contact.ContactAddFrame;
 import com.zwl.rrms.display.back.contact.ContactListFrame;
 import com.zwl.rrms.display.common.FrameChange;
@@ -26,6 +27,7 @@ public class SubMenuPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                Session.getInstance().setContact(true);
                 FrameChange.enterFrame(frame, new ContactAddFrame().getFrame());
             }
         });
@@ -37,6 +39,7 @@ public class SubMenuPanel extends JPanel {
         contactListBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                Session.getInstance().setContact(false);
                 super.mouseClicked(e);
                 FrameChange.enterFrame(frame, new ContactListFrame().getFrame());
             }

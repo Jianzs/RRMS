@@ -89,7 +89,7 @@ public class HouseDetailFrame extends BaseFrame {
 		neiLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		infoPanel.add(neiLabel);
 
-		JLabel addressLabel = new JLabel("地址: ".concat(province.getContent())
+		JLabel addressLabel = new JLabel("地      址: ".concat(province.getContent())
 				.concat(city.getContent()).concat(county.getContent()).concat(house.getAddress()));
 		addressLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		infoPanel.add(addressLabel);
@@ -102,7 +102,7 @@ public class HouseDetailFrame extends BaseFrame {
 		maxCustomerLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		infoPanel.add(maxCustomerLabel);
 		
-		JLabel stateLabel = new JLabel("状态: ".concat(state2str(house.getState())));
+		JLabel stateLabel = new JLabel("状      态: ".concat(state2str(house.getState())));
 		stateLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		infoPanel.add(stateLabel);
 		
@@ -110,11 +110,11 @@ public class HouseDetailFrame extends BaseFrame {
 		freetimeLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		infoPanel.add(freetimeLabel);
 		
-		JLabel serviceChargeLabel = new JLabel("手续费: ".concat(String.valueOf(house.getServiceCharge())));
+		JLabel serviceChargeLabel = new JLabel("手  续  费: ".concat(String.valueOf(house.getServiceCharge())));
 		serviceChargeLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		infoPanel.add(serviceChargeLabel);
 
-		JLabel rentLabel = new JLabel("价格: ".concat(String.valueOf(house.getRent())));
+		JLabel rentLabel = new JLabel("价      格: ".concat(String.valueOf(house.getRent())));
 		rentLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		infoPanel.add(rentLabel);
 

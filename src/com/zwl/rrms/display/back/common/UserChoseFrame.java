@@ -24,9 +24,7 @@ public class UserChoseFrame extends BaseFrame {
 	private JPanel headPanel;
 	private JPanel listPanel;
 
-	private UserEntity user;
-
-	/**
+    /**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {

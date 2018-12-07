@@ -79,7 +79,7 @@ public class ContactDetailFrame extends BaseFrame {
 		ContactEntity contact = ContactController.getById(1);
 //		ContactEntity contact = Session.getInstance().getBackContactDetail();
 		HouseEntity house = HouseController.getHouseById(contact.getRoomId());
-		UserEntity roomer = UserController.getUserById(house.getRoomerId());
+		UserEntity roomer = UserController.getUserById(contact.getRoomId());
 		UserEntity renter = UserController.getUserById(contact.getRenterId());
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 

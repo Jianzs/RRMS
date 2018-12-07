@@ -49,7 +49,7 @@ Authorization scheme: <%= util.HTMLFilter.filter(request.getAuthType()) %>
 Locale: <%= request.getLocale() %>
 <hr>
 The browser you are using is
-<%= util.HTMLFilter.filter(request.getHeader("User-Agent")) %>
+<%= util.HTMLFilter.filter(request.getHeader("user-Agent")) %>
 <hr>
 </font>
 </body>

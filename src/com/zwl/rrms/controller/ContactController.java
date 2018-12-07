@@ -76,4 +76,13 @@ public class ContactController extends BaseController {
         }
         return false;
     }
+
+    public static boolean create(ContactEntity build) {
+        try {
+            return ContactDao.create(build);
+        } catch (SQLException | ClassNotFoundException e) {
+            exceptionHand(e);
+        }
+        return false;
+    }
 }

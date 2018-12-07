@@ -1,12 +1,13 @@
-package com.zwl.rrms.display.front;
+package com.zwl.rrms.display.front.viewrecord;
 
 import com.zwl.rrms.common.Session;
 import com.zwl.rrms.constant.House;
 import com.zwl.rrms.constant.ViewRecord;
 import com.zwl.rrms.controller.HouseController;
+import com.zwl.rrms.display.common.BaseFrame;
+import com.zwl.rrms.display.common.FrameChange;
 import com.zwl.rrms.entity.HouseEntity;
 import com.zwl.rrms.entity.ViewRecordEntity;
-import com.zwl.rrms.util.DateUtil;
 
 import java.awt.EventQueue;
 
@@ -15,6 +16,8 @@ import java.awt.Font;
 import java.awt.Component;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.border.EmptyBorder;
 
 public class ViewDetailFrame extends BaseFrame {
@@ -119,6 +122,21 @@ public class ViewDetailFrame extends BaseFrame {
         JLabel label = new JLabel("看房详情");
         label.setFont(new Font("Dialog", Font.BOLD, 32));
         titlePanel.add(label);
+
+        JPanel returnPanel = new JPanel();
+        frame.getContentPane().add(returnPanel, BorderLayout.SOUTH);
+
+        JButton returnBtn = new JButton("返回");
+        returnBtn.setFont(new Font("Dialog", Font.BOLD, 18));
+        returnPanel.add(returnBtn);
+
+        returnBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                FrameChange.returnFrame(frame);
+            }
+        });
     }
 
     private String plantime2str(Integer planTime) {

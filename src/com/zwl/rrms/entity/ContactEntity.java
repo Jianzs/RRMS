@@ -1,5 +1,7 @@
 package com.zwl.rrms.entity;
 
+import com.zwl.rrms.constant.Contact;
+
 public class ContactEntity {
     private Integer id;
     private Long startTime;
@@ -11,11 +13,11 @@ public class ContactEntity {
     private String leaseTerm;
     private String remark;
 
-    static class Builder {
+    public static class Builder {
         private Integer id;
         private Long startTime;
         private Long endTime;
-        private Integer state;
+        private Integer state = Contact.State.NORMAL;
         private Integer roomId;
         private Integer renterId;
         private Double rent = 0d;

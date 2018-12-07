@@ -1,7 +1,12 @@
 package com.zwl.rrms.display.front.panel;
 
 import com.zwl.rrms.display.common.FrameChange;
-import com.zwl.rrms.display.front.*;
+import com.zwl.rrms.display.front.LoginFrame;
+import com.zwl.rrms.display.front.house.HouseMarketFrame;
+import com.zwl.rrms.display.front.house.MyHouseFrame;
+import com.zwl.rrms.display.front.house.RentHouseFrame;
+import com.zwl.rrms.display.front.user.UserInfoFrame;
+import com.zwl.rrms.display.front.viewrecord.ViewHouseFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,6 +41,19 @@ public class UserMenuPanel extends JPanel {
         JButton personBtn = new JButton("个人信息");
         personBtn.setFont(new Font("Dialog", Font.BOLD, 20));
         this.add(personBtn);
+        this.add(Box.createVerticalGlue());
+        JButton returnBtn = new JButton("退出登录");
+        returnBtn.setFont(new Font("Dialog", Font.BOLD, 20));
+        this.add(returnBtn);
+
+
+        returnBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                FrameChange.enterFrame(frame, new LoginFrame().getFrame());
+            }
+        });
 
         marketBtn.addMouseListener(new MouseAdapter() {
             @Override

@@ -1,22 +1,30 @@
-package com.zwl.rrms.display.front.panel;
+package com.zwl.rrms.display.front.house.panel;
 
+import com.zwl.rrms.common.Session;
 import com.zwl.rrms.controller.CityController;
 import com.zwl.rrms.controller.CountyController;
 import com.zwl.rrms.controller.ProvinceController;
+import com.zwl.rrms.display.common.BaseFrame;
 import com.zwl.rrms.display.common.ComboItem;
+import com.zwl.rrms.display.common.FrameChange;
+import com.zwl.rrms.display.front.house.HouseMarketFrame;
+import com.zwl.rrms.display.front.house.MyHouseFrame;
+import com.zwl.rrms.display.front.house.RentHouseFrame;
 import com.zwl.rrms.entity.CityEntity;
 import com.zwl.rrms.entity.CountyEntity;
 import com.zwl.rrms.entity.ProvinceEntity;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 
 public class HouseMarketSortPanel extends JPanel {
     private JComboBox provinceBox;
     private JComboBox cityBox;
 
-    public HouseMarketSortPanel() {
+    public HouseMarketSortPanel(BaseFrame frame) {
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         setBorder(BorderFactory.createEmptyBorder(5,10,0,10));
 
@@ -39,12 +47,31 @@ public class HouseMarketSortPanel extends JPanel {
         JLabel sortLabel = new JLabel("排序");
         sortLabel.setFont(new Font("Dialog", Font.BOLD, 18));
         add(sortLabel);
-        JButton sortBtn = new JButton("升序");
+        JButton sortBtn = new JButton("点击升序");
         sortBtn.setFont(new Font("Dialog", Font.BOLD, 18));
         add(sortBtn);
 
-        addProvinceItem();
+        sortBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                Session.getInstance().setHouseMarketUpSort(
+                        !Session.getInstance().getHouseMarketUpSort());
+                if (Session.getInstance().getHouseMarketUpSort()) {
+                    sortBtn.setText("点击降序");
+                } else {
+                    sortBtn.setText("点击升序");
+                }
+                if (frame instanceof  HouseMarketFrame)
+                    ((HouseMarketFrame) frame).freshItem();
+                else if (frame instanceof MyHouseFrame)
+                    ((MyHouseFrame) frame).freshItem();
+                else if (frame instanceof RentHouseFrame)
+                    ((RentHouseFrame) frame).freshItem();
+            }
+        });
 
+        addProvinceItem();
         provinceBox.addItemListener(e -> {
             ComboItem item = (ComboItem) e.getItem();
             addCityItem(item);

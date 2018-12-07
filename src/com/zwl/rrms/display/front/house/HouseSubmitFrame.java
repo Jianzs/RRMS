@@ -1,4 +1,4 @@
-package com.zwl.rrms.display.front;
+package com.zwl.rrms.display.front.house;
 
 import com.zwl.rrms.common.Session;
 import com.zwl.rrms.constant.House;
@@ -6,10 +6,10 @@ import com.zwl.rrms.controller.CityController;
 import com.zwl.rrms.controller.CountyController;
 import com.zwl.rrms.controller.HouseController;
 import com.zwl.rrms.controller.ProvinceController;
-import com.zwl.rrms.display.back.common.UserChoseFrame;
 import com.zwl.rrms.display.common.ComboItem;
 import com.zwl.rrms.display.common.FrameChange;
 import com.zwl.rrms.display.common.MsgFrame;
+import com.zwl.rrms.display.common.BaseFrame;
 import com.zwl.rrms.entity.CityEntity;
 import com.zwl.rrms.entity.CountyEntity;
 import com.zwl.rrms.entity.HouseEntity;
@@ -22,8 +22,6 @@ import java.util.List;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 public class HouseSubmitFrame extends BaseFrame {
 

@@ -1,8 +1,9 @@
-package com.zwl.rrms.display.front;
+package com.zwl.rrms.display.front.house;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -11,12 +12,19 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.zwl.rrms.common.Session;
 import com.zwl.rrms.controller.ContactController;
-import com.zwl.rrms.display.front.panel.HouseMarketSortPanel;
-import com.zwl.rrms.display.front.panel.RentHouseBriefPanel;
+import com.zwl.rrms.controller.HouseController;
+import com.zwl.rrms.display.common.BaseFrame;
+import com.zwl.rrms.display.front.house.panel.HouseMarketBriefPanel;
+import com.zwl.rrms.display.front.house.panel.HouseMarketSortPanel;
+import com.zwl.rrms.display.front.house.panel.RentHouseBriefPanel;
 import com.zwl.rrms.display.front.panel.UserMenuPanel;
+import com.zwl.rrms.entity.ContactEntity;
+import com.zwl.rrms.entity.HouseEntity;
 
 public class RentHouseFrame extends BaseFrame {
+    private JPanel itemPanel;
 
 //	private JFrame frame;
 
@@ -71,9 +79,9 @@ public class RentHouseFrame extends BaseFrame {
 		mainPanel.add(bodyPanel, BorderLayout.CENTER);
 		bodyPanel.setLayout(new BorderLayout(0, 0));
 
-		bodyPanel.add(new HouseMarketSortPanel(), BorderLayout.NORTH);
+		bodyPanel.add(new HouseMarketSortPanel(this), BorderLayout.NORTH);
 
-		JPanel itemPanel = new JPanel();
+		itemPanel = new JPanel();
 		itemPanel.setLayout(new BoxLayout(itemPanel, BoxLayout.Y_AXIS));
 		bodyPanel.add(itemPanel, BorderLayout.CENTER);
 //		panel_5.setLayout(new BoxLayout(panel_5, BoxLayout.Y_AXIS));
@@ -86,4 +94,27 @@ public class RentHouseFrame extends BaseFrame {
 		});
 	}
 
+    public void freshItem() {
+        itemPanel.removeAll();
+        List<ContactEntity> contacts = ContactController.listContactByPage(1);
+        contacts.sort((h1, h2) -> {
+            double res = h1.getRent() - h2.getRent();
+            if (!Session.getInstance().getHouseMarketUpSort()) res *= -1;
+            if (res > 0) {
+                return 1;
+            } else if (res < 0) {
+                return -1;
+            } else {
+                return 0;
+            }
+        });
+
+        contacts.forEach(contact -> {
+            JPanel panelTmp = new RentHouseBriefPanel(contact, this.frame);
+            itemPanel.add(panelTmp);
+            itemPanel.add(Box.createVerticalGlue());
+        });
+        itemPanel.updateUI();
+        itemPanel.repaint();
+    }
 }

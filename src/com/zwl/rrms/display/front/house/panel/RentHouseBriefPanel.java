@@ -1,9 +1,9 @@
-package com.zwl.rrms.display.front.panel;
+package com.zwl.rrms.display.front.house.panel;
 
 import com.zwl.rrms.controller.HouseController;
 import com.zwl.rrms.controller.UserController;
 import com.zwl.rrms.display.common.FrameChange;
-import com.zwl.rrms.display.front.HouseDetailFrame;
+import com.zwl.rrms.display.front.house.HouseDetailFrame;
 import com.zwl.rrms.entity.ContactEntity;
 import com.zwl.rrms.entity.HouseEntity;
 import com.zwl.rrms.entity.UserEntity;
@@ -50,6 +50,12 @@ public class RentHouseBriefPanel extends JPanel {
         JLabel stateLabel = new JLabel("终止时间：".concat(DateUtil.date2str(contact.getEndTime())));
         stateLabel.setFont(new Font("Dialog", Font.BOLD, 18));
         rightPanel.add(stateLabel);
+
+        add(Box.createHorizontalGlue());
+
+        JLabel rentLabel = new JLabel("租金：" + house.getRent());
+        rentLabel.setFont(new Font("Dialog", Font.BOLD, 18));
+        leftPanel.add(rentLabel);
 
         add(Box.createHorizontalGlue());
 

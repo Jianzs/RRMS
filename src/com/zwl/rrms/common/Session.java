@@ -10,6 +10,8 @@ public class Session {
     private HouseEntity house;
     private ViewRecordEntity viewRecord;
 
+    private boolean houseMarketUpSort;
+
     private HouseEntity backHouseDetail;
     private UserEntity backUserDetail;
     private ContactEntity backContactDetail;
@@ -23,7 +25,52 @@ public class Session {
     private ContactEntity modifiedContact;
     private ViewRecordEntity modifiedView;
 
+    private boolean isContact = false;
+    private Integer role;
+    private UserEntity addContactRoomer;
+    private UserEntity addContactRenter;
+
     private static Session ourInstance = new Session();
+
+    public boolean getHouseMarketUpSort() {
+        return houseMarketUpSort;
+    }
+
+    public void setHouseMarketUpSort(boolean houseMarketUpSort) {
+        this.houseMarketUpSort = houseMarketUpSort;
+    }
+
+    public boolean isContact() {
+        return isContact;
+    }
+
+    public void setContact(boolean contact) {
+        isContact = contact;
+    }
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
+    }
+
+    public UserEntity getAddContactRoomer() {
+        return addContactRoomer;
+    }
+
+    public void setAddContactRoomer(UserEntity addContactRoomer) {
+        this.addContactRoomer = addContactRoomer;
+    }
+
+    public UserEntity getAddContactRenter() {
+        return addContactRenter;
+    }
+
+    public void setAddContactRenter(UserEntity addContactRenter) {
+        this.addContactRenter = addContactRenter;
+    }
 
     public HouseEntity getModifiedHouse() {
         return modifiedHouse;

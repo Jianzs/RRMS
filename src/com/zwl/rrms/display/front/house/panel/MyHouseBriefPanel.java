@@ -1,8 +1,8 @@
-package com.zwl.rrms.display.front.panel;
+package com.zwl.rrms.display.front.house.panel;
 
 import com.zwl.rrms.constant.House;
 import com.zwl.rrms.display.common.FrameChange;
-import com.zwl.rrms.display.front.HouseDetailFrame;
+import com.zwl.rrms.display.front.house.HouseDetailFrame;
 import com.zwl.rrms.entity.HouseEntity;
 
 import javax.swing.*;
@@ -11,12 +11,19 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class MyHouseBriefPanel extends JPanel {
+    private static int color = 1;
     private HouseEntity house;
     private JFrame frame;
 
     public MyHouseBriefPanel(HouseEntity house, JFrame frame) {
         this.house = house;
         this.frame = frame;
+
+        if (color == 1)
+            this.setBackground(new Color(218, 247, 166));
+        else
+            this.setBackground(new Color(121, 223, 214));
+        color = (color + 1) % 2;
 
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         setBorder(BorderFactory.createEmptyBorder(10,20,5,15));
@@ -40,6 +47,12 @@ public class MyHouseBriefPanel extends JPanel {
         JLabel stateLabel = new JLabel("状态：".concat(state2str()));
         stateLabel.setFont(new Font("Dialog", Font.BOLD, 18));
         add(stateLabel);
+
+        add(Box.createHorizontalGlue());
+
+        JLabel rentLabel = new JLabel("租金：" + house.getRent());
+        rentLabel.setFont(new Font("Dialog", Font.BOLD, 18));
+        add(rentLabel);
 
         add(Box.createHorizontalGlue());
 

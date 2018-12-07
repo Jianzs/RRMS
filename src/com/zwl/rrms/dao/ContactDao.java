@@ -14,17 +14,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContactDao extends BaseDao {
+    private static String save =
+        "insert into contact(start_time, end_time, state, \n" +
+        "                    room_id, renter_id, rent, lease_term, remark) \n" +
+        "values (?,?,?,?,?,?,?,?)";
+
     private static String listByPageAndState =
             "SELECT * " +
-                    "FROM contact " +
-                    "WHERE state = ? " +
-                    "AND renter_id = ? " +
-                    "LIMIT ?, ?";
+            "FROM contact " +
+            "WHERE state = ? " +
+            "AND renter_id = ? " +
+            "LIMIT ?, ?";
 
     private static String listAll =
             "SELECT * " +
-                    "FROM contact " +
-                    "LIMIT ?, ?";
+            "FROM contact " +
+            "WHERE state <> ? " +
+            "LIMIT ?, ?";
     private static String countAll =
             "select count(*)\n" +
                     "from contact\n";
@@ -75,8 +81,9 @@ public class ContactDao extends BaseDao {
             throws InvocationTargetException, SQLException, InstantiationException, NoSuchMethodException, IllegalAccessException, ClassNotFoundException {
         Connection conn = getConnection();
         PreparedStatement stmt = conn.prepareStatement(listAll);
-        stmt.setInt(1, Parameter.NUM_HOUSE_PER_PAGE * (page - 1));
-        stmt.setInt(2, Parameter.NUM_HOUSE_PER_PAGE);
+        stmt.setInt(1, Contact.State.DELETED);
+        stmt.setInt(2, Parameter.NUM_HOUSE_PER_PAGE * (page - 1));
+        stmt.setInt(3, Parameter.NUM_HOUSE_PER_PAGE);
         ResultSet rs = stmt.executeQuery();
 
         List<ContactEntity> entities = new ArrayList<>();
@@ -141,5 +148,22 @@ public class ContactDao extends BaseDao {
 
     public static boolean deleteById(Integer id) throws SQLException, ClassNotFoundException {
         return deleteById("contact", Contact.State.DELETED, id);
+    }
+
+    public static boolean create(ContactEntity contact)
+            throws SQLException, ClassNotFoundException {
+        Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement(save);
+        stmt.setLong(1, contact.getStartTime());
+        stmt.setLong(2, contact.getEndTime());
+        stmt.setInt(3, contact.getState());
+        stmt.setInt(4, contact.getRoomId());
+        stmt.setInt(5, contact.getRenterId());
+        stmt.setDouble(6, contact.getRent());
+        stmt.setString(7, contact.getLeaseTerm());
+        stmt.setString(8, contact.getRemark());
+        int rs = stmt.executeUpdate();
+        close(conn, null, stmt);
+        return rs > 0;
     }
 }
