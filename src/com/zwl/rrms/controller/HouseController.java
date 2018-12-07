@@ -115,4 +115,13 @@ public class HouseController extends BaseController {
         }
         return false;
     }
+
+    public static int countActiveAll() {
+        try {
+            return HouseDao.countByState(House.State.NOT_RENT);
+        } catch (SQLException | ClassNotFoundException e) {
+            exceptionHand(e);
+        }
+        return 1;
+    }
 }

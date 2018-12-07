@@ -218,6 +218,7 @@ public class ContactAddFrame extends BaseFrame {
 
         rentField = new JTextField();
         rentField.setFont(new Font("Dialog", Font.BOLD, 18));
+        rentField.setColumns(16);
         rentPanel.add(rentField);
 
         JPanel remarkPanel = new JPanel();

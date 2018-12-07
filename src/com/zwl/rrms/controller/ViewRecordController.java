@@ -1,8 +1,10 @@
 package com.zwl.rrms.controller;
 
 import com.zwl.rrms.common.Session;
+import com.zwl.rrms.constant.House;
 import com.zwl.rrms.constant.ViewRecord;
 import com.zwl.rrms.dao.ViewRecordDao;
+import com.zwl.rrms.entity.HouseEntity;
 import com.zwl.rrms.entity.ViewRecordEntity;
 
 import java.lang.reflect.InvocationTargetException;

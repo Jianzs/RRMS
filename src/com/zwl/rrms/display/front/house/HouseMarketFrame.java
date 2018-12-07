@@ -1,23 +1,32 @@
 package com.zwl.rrms.display.front.house;
 
 import com.zwl.rrms.common.Session;
+import com.zwl.rrms.constant.Parameter;
 import com.zwl.rrms.controller.HouseController;
+import com.zwl.rrms.controller.ViewRecordController;
 import com.zwl.rrms.display.common.BaseFrame;
 import com.zwl.rrms.display.front.house.panel.HouseMarketBriefPanel;
 import com.zwl.rrms.display.front.house.panel.HouseMarketSortPanel;
 import com.zwl.rrms.display.front.panel.UserMenuPanel;
 import com.zwl.rrms.entity.HouseEntity;
+import com.zwl.rrms.entity.ViewRecordEntity;
 
 import java.awt.*;
 
 import javax.swing.*;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 import java.util.Objects;
 
 public class HouseMarketFrame extends BaseFrame {
     private JPanel itemPanel;
     private JPanel headPanel;
+	private int maxPage;
+	private JButton prevBtn;
+	private JButton nextBtn;
+	private Integer page = 1;
 
 //	private JFrame frame;
 
@@ -106,10 +115,74 @@ public class HouseMarketFrame extends BaseFrame {
 			itemPanel.add(panelTmp);
 //			itemPanel.add(Box.createVerticalGlue());
 		});
+
+		/*** page button  ****/
+		maxPage = HouseController.countActiveAll() / Parameter.NUM_HOUSE_PER_PAGE + 1;
+		JPanel btnPanel = new JPanel();
+		mainPanel.add(btnPanel, BorderLayout.SOUTH);
+
+		prevBtn = new JButton("上一页");
+		btnPanel.add(prevBtn);
+
+		nextBtn = new JButton("下一页");
+		btnPanel.add(nextBtn);
+
+		updateBtnState();
+		prevBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (page == 1) return;
+				super.mouseClicked(e);
+				page --;
+				updateBtnState();
+				List<HouseEntity> houses = HouseController.listHouseByPage(page);
+				renderList(houses);
+			}
+		});
+
+		nextBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (page.equals(maxPage)) return ;
+				super.mouseClicked(e);
+				page++;
+				updateBtnState();
+				List<HouseEntity> houses = HouseController.listHouseByPage(page);
+				renderList(houses);
+			}
+		});
+	}
+
+	private void updateBtnState() {
+		if (page.equals(1)) {
+			prevBtn.setEnabled(false);
+		} else {
+			prevBtn.setEnabled(true);
+		}
+
+		if (page.equals(maxPage)) {
+			nextBtn.setEnabled(false);
+		} else {
+			nextBtn.setEnabled(true);
+		}
+	}
+
+	private void renderList(List<HouseEntity> houses) {
+		itemPanel.removeAll();
+		itemPanel.add(headPanel);
+
+		itemPanel.add(headPanel);
+		houses.forEach((house) -> {
+			JPanel panelTmp = new HouseMarketBriefPanel(house, this.frame);
+			itemPanel.add(panelTmp);
+//            itemPanel.add(Box.createVerticalGlue());
+		});
+
+		itemPanel.updateUI();
+		itemPanel.repaint();
 	}
 
     public void freshItem() {
-	    itemPanel.removeAll();
         List<HouseEntity> houses = HouseController.listHouseByPage(1);
         houses.sort((h1, h2) -> {
             double res = h1.getRent() - h2.getRent();
@@ -123,13 +196,6 @@ public class HouseMarketFrame extends BaseFrame {
             }
         });
 
-        itemPanel.add(headPanel);
-        houses.forEach((house) -> {
-            JPanel panelTmp = new HouseMarketBriefPanel(house, this.frame);
-            itemPanel.add(panelTmp);
-//            itemPanel.add(Box.createVerticalGlue());
-        });
-        itemPanel.updateUI();
-        itemPanel.repaint();
+		renderList(houses);
     }
 }

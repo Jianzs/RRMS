@@ -30,8 +30,13 @@ public class HouseDao extends BaseDao {
 
     private static String countAllByUid =
             "select count(*)\n" +
+                    "from house\n" +
+                    "where roomer_id = ?";
+
+    private static String countAllByState =
+            "select count(*)\n" +
             "from house\n" +
-            "where roomer_id = ?";
+            "where state = ?";
 
     private static String listAll =
             "SELECT * " +
@@ -254,5 +259,16 @@ public class HouseDao extends BaseDao {
         int i = stmt.executeUpdate();
         close(conn, null, stmt);
         return i > 0;
+    }
+
+    public static int countByState(int unpaid) throws SQLException, ClassNotFoundException {
+        Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement(countAllByState);
+        stmt.setInt(1, unpaid);
+        ResultSet rs = stmt.executeQuery();
+        rs.next();
+        int ans = rs.getInt(1);
+        close(conn, rs, stmt);
+        return ans;
     }
 }

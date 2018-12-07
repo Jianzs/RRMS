@@ -83,7 +83,7 @@ public class ViewListFrame extends BaseFrame {
 		/**** main panel ****/
 
 		JPanel searchPanel = new JPanel();
-		mainPanel.add(searchPanel, BorderLayout.NORTH);
+//		mainPanel.add(searchPanel, BorderLayout.NORTH);
 		searchPanel.setLayout(new BoxLayout(searchPanel, BoxLayout.X_AXIS));
 
 		searchField = new JTextField();

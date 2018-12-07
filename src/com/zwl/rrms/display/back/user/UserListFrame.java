@@ -101,6 +101,9 @@ private JTextField searchField;
 		searchBox.setFont(new Font("Dialog", Font.BOLD, 18));
 		searchPanel.add(searchBox);
 
+		searchBox.addItem(new ComboItem("手机号", User.Search.PHONE));
+		searchBox.addItem(new ComboItem("姓名", User.Search.NAME));
+
 		JButton searchBtn = new JButton("搜索");
 		searchBtn.setFont(new Font("Dialog", Font.BOLD, 18));
 		searchPanel.add(searchBtn);
